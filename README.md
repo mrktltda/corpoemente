@@ -1,12 +1,5 @@
+# Corpo e Mente
 
-# Desafio 30 Dias Transformando Corpo & Mente - Landing Page
+Ter saúde plena vai muito além de não ter doenças. Significa viver com disposição, equilíbrio emocional, clareza mental e um corpo que te apoia em cada projeto e sonho.
 
-Arquivos gerados:
-- `index.html` - Página principal pronta para edição
-- `style.css` - Estilos do site
-- `assets/images/` - Pasta para suas imagens locais (opcional)
-
-**Observações importantes**
-- As imagens usadas no HTML são externas (Unsplash) como exemplo. Você pode substituir por imagens locais colocando arquivos em `assets/images/` e alterando os `src`.
-- O botão de compra atual usa o link `#comprar-link` como placeholder. Substitua pelo seu link da Braip quando estiver disponível.
-- O local para inserir o script da Braip foi deixado com um comentário `<!-- Inserir script da Braip aqui -->` próximo ao final do `index.html`.
+O primeiro passo para conquistar isso é entender a base do bem-estar.
