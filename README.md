@@ -1,15 +1,12 @@
-# Desafio 30 Dias Transformando Corpo & Mente
 
-Landing page de vendas do programa **Desafio 30 Dias**, focado em promover equilíbrio, saúde e bem-estar com técnicas simples e práticas.
+# Desafio 30 Dias Transformando Corpo & Mente - Landing Page
 
-## Estrutura
-- `index.html`: Página principal de vendas.
-- `style.css`: Estilos e cores do layout.
-- `assets/images/`: Pasta para adicionar imagens ilustrativas.
+Arquivos gerados:
+- `index.html` - Página principal pronta para edição
+- `style.css` - Estilos do site
+- `assets/images/` - Pasta para suas imagens locais (opcional)
 
-## Como editar o botão de compra
-Substitua o link de exemplo do botão "Comprar agora" pelo seu link da Braip, Hotmart ou Kiwify:
-
-```html
-<a href="https://seu-link-da-braip.com" class="cta-button">Comprar agora</a>
-```
+**Observações importantes**
+- As imagens usadas no HTML são externas (Unsplash) como exemplo. Você pode substituir por imagens locais colocando arquivos em `assets/images/` e alterando os `src`.
+- O botão de compra atual usa o link `#comprar-link` como placeholder. Substitua pelo seu link da Braip quando estiver disponível.
+- O local para inserir o script da Braip foi deixado com um comentário `<!-- Inserir script da Braip aqui -->` próximo ao final do `index.html`.
