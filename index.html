@@ -2,132 +2,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desafio 30 Dias - Corpo & Mente</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio 30 Dias - Corpo & Mente</title>
+  <style>
     body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #ff8c00, #800080);
-        color: #fff;
-        text-align: center;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f5f8f5;
+      color: #333;
     }
     header {
-        padding: 60px 20px;
+      background: linear-gradient(90deg, #7dd87d, #b6e8b6);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
     }
-    h1 {
-        font-size: 2.8em;
-        margin-bottom: 10px;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    header a {
+      background-color: #fff;
+      color: #3c7a3c;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    header a:hover {
+      background-color: #3c7a3c;
+      color: #fff;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
     }
     h2 {
-        color: #ffe600;
-        margin: 10px 0;
+      color: #3c7a3c;
+      text-align: center;
+      margin-bottom: 20px;
     }
-    p {
-        font-size: 1.2em;
-        line-height: 1.6;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    .cta {
-        background-color: #fff;
-        color: #800080;
-        font-weight: bold;
-        border: none;
-        padding: 15px 30px;
-        font-size: 1.2em;
-        border-radius: 50px;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .cta:hover {
-        background-color: #ff8c00;
-        color: #fff;
-    }
-    .oferta {
-        background-color: rgba(255,255,255,0.15);
-        padding: 30px;
-        border-radius: 20px;
-        margin: 40px auto;
-        max-width: 600px;
-    }
-    .preco {
-        font-size: 1.6em;
-        margin: 10px 0;
-    }
-    .preco del {
-        color: #ccc;
-        margin-right: 10px;
-    }
-    .checkout {
-        display: block;
-        margin: 20px auto;
-        background-color: #ffe600;
-        color: #800080;
-        font-weight: bold;
-        text-decoration: none;
-        padding: 15px 25px;
-        border-radius: 50px;
-        font-size: 1.1em;
-        transition: 0.3s;
-    }
-    .checkout:hover {
-        background-color: #ff8c00;
-        color: #fff;
-    }
-    .contato {
-        background-color: rgba(255,255,255,0.1);
-        padding: 40px 20px;
-        border-radius: 20px;
-        margin: 40px auto;
-        max-width: 600px;
-    }
-    section img {
-        width: 100%;
-        max-width: 800px;
-        border-radius: 20px;
-        margin: 20px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    .feedback {
+      background-color: #e6f5e6;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 10px 0;
+      font-style: italic;
     }
     footer {
-        background-color: rgba(0,0,0,0.3);
-        padding: 30px 10px;
-        margin-top: 40px;
+      background-color: #3c7a3c;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
     }
-    footer img {
-        width: 120px;
-        margin-bottom: 10px;
-        border-radius: 10px;
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin: 20px 0;
     }
-</style>
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Desafio 30 Dias</h1>
-        <h2>Transformando Corpo & Mente</h2>
-        <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1200&q=60" alt="Pessoa praticando ioga, bem-estar e energia">
-        <p>Em 30 dias, conquiste mais disposição, foco e equilíbrio entre corpo e mente — com técnicas simples e práticas de saúde integral.</p>
-        <button class="cta">Quero Transformar Meu Corpo e Mente</button>
-    </header>
+  <header>
+    <h1>Desafio 30 Dias - Transformando Corpo & Mente</h1>
+    <p>Em 30 dias, conquiste mais disposição, foco e equilíbrio entre corpo e mente — com técnicas simples e práticas de saúde integral.</p>
+    <p><strong>De R$80,00 por apenas R$42,50!</strong></p>
+    <a href="#">Comprar agora</a>
+  </header>
 
-    <section class="oferta">
-        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1000&q=60" alt="Comida saudável e energia">
-        <p class="preco"><del>R$ 80,00</del> <strong>R$ 42,50</strong></p>
-        <a href="https://ev.braip.com/checkout/chel6ng8" class="checkout">💳 Acessar Checkout Seguro</a>
-    </section>
+  <section>
+    <h2>Aprenda Alimentação Saudável</h2>
+    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=900&q=60" alt="Alimentação saudável">
+    <p>Descubra como pequenas mudanças diárias na alimentação podem transformar sua energia, humor e disposição. Receitas simples, coloridas e nutritivas para o seu dia a dia!</p>
+  </section>
 
-    <section class="contato">
-        <img src="https://images.unsplash.com/photo-1601582587305-7a6c1f72a2f6?auto=format&fit=crop&w=1000&q=60" alt="Pessoa relaxando e cuidando da mente">
-        <h2>Fale Conosco</h2>
-        <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" style="color:#fff;text-decoration:underline;">(21) 99745-3119</a></p>
-        <p>📧 E-mail: <a href="mailto:marketingmrkt2025@gmail.com" style="color:#fff;text-decoration:underline;">marketingmrkt2025@gmail.com</a></p>
-    </section>
+  <section>
+    <h2>Aprenda Exercícios em Casa</h2>
+    <img src="https://images.unsplash.com/photo-1594737625785-cb37d7dbfac4?auto=format&fit=crop&w=900&q=60" alt="Exercícios em casa">
+    <p>Rotinas simples e eficazes que cabem no seu tempo! Você vai aprender a se movimentar com prazer e ver resultados reais em poucas semanas.</p>
+  </section>
 
-    <footer>
-        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=60" alt="Natureza e vitalidade">
-        <p>© 2025 Corpo & Mente - Todos os direitos reservados</p>
-    </footer>
+  <section>
+    <h2>Sono Reparador</h2>
+    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=60" alt="Sono tranquilo">
+    <p>O descanso é o segredo do equilíbrio. Aprenda técnicas simples para dormir melhor, acordar com mais energia e manter seu corpo em harmonia.</p>
+  </section>
+
+  <section>
+    <h2>Feedbacks</h2>
+    <div class="feedback">“Em apenas 10 dias já senti mais disposição e leveza no corpo!”</div>
+    <div class="feedback">“Nunca imaginei que cuidar da mente fosse tão poderoso quanto do corpo.”</div>
+    <div class="feedback">“O programa é simples, prático e transformador.”</div>
+    <div class="feedback">“Valeu cada centavo — recomendo demais!”</div>
+  </section>
+
+  <section>
+    <h2>Guia de Autoestima</h2>
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=60" alt="Autoestima e bem-estar">
+    <p>Você merece se sentir bem, confiante e em paz. Aqui, você vai descobrir como fortalecer seu amor-próprio e celebrar cada conquista no processo.</p>
+  </section>
+
+  <footer>
+    <p><strong>Entre em contato</strong></p>
+    <p>📱 WhatsApp: (21) 99745-3119</p>
+    <p>📧 E-mail: marketingmrkt2025@gmail.com</p>
+  </footer>
 </body>
 </html>
