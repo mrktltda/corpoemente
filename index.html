@@ -1,118 +1,137 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desafio 30 Dias - Corpo & Mente</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: #f5f8f5;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(90deg, #7dd87d, #b6e8b6);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    header a {
-      background-color: #fff;
-      color: #3c7a3c;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    header a:hover {
-      background-color: #3c7a3c;
-      color: #fff;
-    }
-    section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #3c7a3c;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .feedback {
-      background-color: #e6f5e6;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 10px 0;
-      font-style: italic;
-    }
-    footer {
-      background-color: #3c7a3c;
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 15px;
-      margin: 20px 0;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Desafio 30 Dias - Transformando Corpo & Mente</title>
+<meta name="description" content="Em 30 dias, conquiste mais disposição, foco e equilíbrio entre corpo e mente." />
+<style>
+  :root{--green1:#7dd87d;--green2:#3c7a3c;--neutral:#f5f8f5;--card:#ffffff;--muted:#333;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter, Poppins, system-ui, sans-serif;background:var(--neutral);color:var(--muted);-webkit-font-smoothing:antialiased;}
+  a{color:inherit}
+  .hero{position:relative;overflow:hidden;height:62vh;min-height:420px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.18));}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.66);}
+  .overlay{position:relative;z-index:2;max-width:1200px;padding:36px;color:#fff;display:flex;gap:28px;align-items:center;}
+  .hero-text{flex:1}
+  .hero-text h1{font-size:2.6rem;margin:0 0 8px;line-height:1.02;text-shadow:0 8px 30px rgba(0,0,0,0.4)}
+  .hero-text p.lead{font-size:1.12rem;margin:0 0 16px;opacity:0.95}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-primary{background:var(--green1);color:#073b16;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(60,122,60,0.14)}
+  .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,0.14);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+  .hero-media{width:420px;flex-shrink:0;display:block}
+  .hero-media img{width:100%;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.35)}
+  main{max-width:1100px;margin:36px auto;padding:0 20px}
+  section.module{border-radius:12px;padding:28px;margin:20px 0;box-shadow:0 10px 30px rgba(34,34,34,0.06);}
+  section.module h2{margin-top:0;color:var(--green2)}
+  .module-img{width:100%;max-height:340px;object-fit:cover;border-radius:10px;margin-top:12px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feedback{background:#f0fff4;padding:16px;border-radius:10px;font-style:italic;color:#13411f;margin-bottom:10px}
+  .toast-wrap{position:fixed;right:20px;bottom:20px;z-index:9999}
+  .toast{background:linear-gradient(90deg,var(--green1),var(--green2));color:#072b14;padding:12px 16px;border-radius:10px;box-shadow:0 10px 30px rgba(20,70,20,0.18);margin-top:10px;opacity:0;transform:translateY(12px);transition:all .45s ease}
+  .toast.show{opacity:1;transform:translateY(0)}
+  footer{text-align:center;padding:28px 12px;color:#033;background:linear-gradient(90deg,#eaf8ef,#d7f1e6);margin-top:28px;border-top:1px solid rgba(0,0,0,0.03)}
+  footer a{color:var(--green2);font-weight:600}
+  @media(max-width:900px){.hero{height:56vh}.overlay{flex-direction:column;text-align:center}.hero-media{order:-1;width:100%}.grid-3{grid-template-columns:1fr}.hero-text h1{font-size:2rem}}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Desafio 30 Dias - Transformando Corpo & Mente</h1>
-    <p>Em 30 dias, conquiste mais disposição, foco e equilíbrio entre corpo e mente — com técnicas simples e práticas de saúde integral.</p>
-    <p><strong>De R$80,00 por apenas R$42,50!</strong></p>
-    <a href="#">Comprar agora</a>
+
+  <header class="hero" role="banner" aria-label="Banner principal">
+    <img src="{hero_src}" alt="Banner principal — Transforme corpo e mente" onerror="this.src='https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1200&q=60'">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Transforme Corpo e Mente em 30 Dias</h1>
+        <p class="lead">Um programa completo para sua saúde, foco e autoestima. Plano diário prático com vídeos, PDFs e suporte.</p>
+        <div class="ctas">
+          <a class="btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank" rel="noopener">Comece Agora — R$ 42,50</a>
+          <a class="btn-ghost" href="#modules">Ver módulos</a>
+        </div>
+        <p style="margin-top:10px;font-size:0.95rem;opacity:0.95">Oferta de lançamento — <del style="opacity:0.7">R$ 80,00</del> <strong>R$ 42,50</strong></p>
+      </div>
+
+      <div class="hero-media" aria-hidden="true">
+        <img src="{hero_src}" alt="Exemplo feminino - antes/depois" onerror="this.src='https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1200&q=60'">
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Aprenda Alimentação Saudável</h2>
-    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=900&q=60" alt="Alimentação saudável">
-    <p>Descubra como pequenas mudanças diárias na alimentação podem transformar sua energia, humor e disposição. Receitas simples, coloridas e nutritivas para o seu dia a dia!</p>
-  </section>
+  <main>
+    <section id="modules" class="module" style="background:linear-gradient(135deg,#f7fff8,#f0fff4);">
+      <h2>Apresentação do Produto</h2>
+      <p>O <strong>Desafio 30 Dias</strong> combina práticas de alimentação, movimento, sono e autocuidado para criar hábitos sustentáveis. Material prático, rotinas curtas e suporte para te guiar na transformação.</p>
+      <img class="module-img" src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=1200&q=60" alt="Visão geral do programa">
+    </section>
 
-  <section>
-    <h2>Aprenda Exercícios em Casa</h2>
-    <img src="https://images.unsplash.com/photo-1594737625785-cb37d7dbfac4?auto=format&fit=crop&w=900&q=60" alt="Exercícios em casa">
-    <p>Rotinas simples e eficazes que cabem no seu tempo! Você vai aprender a se movimentar com prazer e ver resultados reais em poucas semanas.</p>
-  </section>
+    <section id="alimentacao" class="module" style="background:linear-gradient(135deg,#eaf8f1,#d7f1e6);">
+      <h2>Aprenda Alimentação Saudável</h2>
+      <p>Receitas práticas, listas de compras e estratégias para reeducar sua alimentação sem sofrimento — foco em energia, saciedade e prazer.</p>
+      <div class="grid-3" style="margin-top:12px">
+        <div><img class="module-img" src="https://images.unsplash.com/photo-1547592166-4b6b2b0b7a57?auto=format&fit=crop&w=800&q=60" alt=""><h4>Receitas simples</h4></div>
+        <div><img class="module-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" alt=""><h4>Planejamento</h4></div>
+        <div><img class="module-img" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60" alt=""><h4>Controle de desejos</h4></div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Sono Reparador</h2>
-    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=60" alt="Sono tranquilo">
-    <p>O descanso é o segredo do equilíbrio. Aprenda técnicas simples para dormir melhor, acordar com mais energia e manter seu corpo em harmonia.</p>
-  </section>
+    <section id="exercicios" class="module" style="background:linear-gradient(135deg,#f1eaf8,#efe6f4);">
+      <h2>Aprenda Exercícios em Casa</h2>
+      <p>Rotinas de 10–20 minutos para força, mobilidade e condicionamento. Treinos fáceis de seguir, sem equipamentos caros.</p>
+      <img class="module-img" src="https://images.unsplash.com/photo-1594737625785-cb37d7dbfac4?auto=format&fit=crop&w=1200&q=60" alt="Exercícios em casa">
+    </section>
 
-  <section>
-    <h2>Feedbacks</h2>
-    <div class="feedback">“Em apenas 10 dias já senti mais disposição e leveza no corpo!”</div>
-    <div class="feedback">“Nunca imaginei que cuidar da mente fosse tão poderoso quanto do corpo.”</div>
-    <div class="feedback">“O programa é simples, prático e transformador.”</div>
-    <div class="feedback">“Valeu cada centavo — recomendo demais!”</div>
-  </section>
+    <section id="sono" class="module" style="background:linear-gradient(135deg,#eaf2ff,#dfeeff);">
+      <h2>Sono Reparador</h2>
+      <p>Higiene do sono, rotinas relaxantes e técnicas de respiração para garantir recuperação e disposição durante o dia.</p>
+      <img class="module-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=60" alt="Sono reparador">
+    </section>
 
-  <section>
-    <h2>Guia de Autoestima</h2>
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=60" alt="Autoestima e bem-estar">
-    <p>Você merece se sentir bem, confiante e em paz. Aqui, você vai descobrir como fortalecer seu amor-próprio e celebrar cada conquista no processo.</p>
-  </section>
+    <section id="feedbacks" class="module" style="background:#fff;">
+      <h2>Feedbacks</h2>
+      <div class="feedback">“Em 15 dias já senti mais energia e clareza mental.” — <strong>Fernanda</strong></div>
+      <div class="feedback">“Rotinas simples e fáceis de seguir. Recomendo!” — <strong>Pedro</strong></div>
+      <div class="feedback">“Melhorei meu sono e minha concentração.” — <strong>Valéria</strong></div>
+    </section>
+
+    <section id="autoestima" class="module" style="background:linear-gradient(135deg,#fff0f5,#ffeef8);">
+      <h2>Guia de Autoestima</h2>
+      <p>Dicas práticas para fortalecer a autoconfiança, celebrar pequenas vitórias e desenvolver uma relação mais positiva com seu corpo.</p>
+      <img class="module-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=60" alt="Autoestima">
+    </section>
+  </main>
 
   <footer>
-    <p><strong>Entre em contato</strong></p>
-    <p>📱 WhatsApp: (21) 99745-3119</p>
-    <p>📧 E-mail: marketingmrkt2025@gmail.com</p>
+    <p><strong>Contato</strong></p>
+    <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
+    <p>© 2025 Desafio 30 Dias — Transformando Corpo & Mente</p>
   </footer>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (function(){
+      const names = ['Fernando','Pedro','Valéria','Mariana','Lucas','Ana','Carla','João','Beatriz'];
+      const cities = ['São Paulo','Recife','Curitiba','Rio de Janeiro','Belo Horizonte','Porto Alegre'];
+      function createToast(text) {
+        const wrap = document.getElementById('toastWrap');
+        if(!wrap) return;
+        const el = document.createElement('div');
+        el.className = 'toast';
+        el.innerHTML = '✅ ' + text;
+        wrap.appendChild(el);
+        requestAnimationFrame(()=> el.classList.add('show'));
+        setTimeout(()=> { el.classList.remove('show'); setTimeout(()=> { try{ wrap.removeChild(el); }catch(e){} }, 450); }, 2600);
+      }
+      function randomSale() {
+        const name = names[Math.floor(Math.random()*names.length)];
+        const city = cities[Math.floor(Math.random()*cities.length)];
+        createToast(`${name} de ${city} acabou de garantir seu acesso!`);
+      }
+      randomSale();
+      const interval = setInterval(randomSale, 3000);
+      document.addEventListener('visibilitychange', ()=> { if(document.hidden) clearInterval(interval); });
+    })();
+  </script>
+
 </body>
 </html>
