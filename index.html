@@ -1,196 +1,69 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Desafio 30 Dias - Corpo & Mente</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    /* Banner principal */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 90vh;
-      background: url('assets/hero_banner.png') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      border-radius: 10px;
-      text-align: center;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    .cta-button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-    .cta-button:hover {
-      background-color: #3e8e41;
-    }
-
-    /* Botão flutuante */
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      z-index: 1000;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* Seções diferenciadas */
-    .module {
-      background-color: #e9f7ef;
-      border-top: 6px solid #4CAF50;
-      border-radius: 10px;
-      margin: 20px auto;
-      width: 90%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 40px 20px;
-    }
-
-    .highlight {
-      background-color: #d4e9ff;
-      border-top: 6px solid #0077ff;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .notification {
-      position: fixed;
-      bottom: 100px;
-      left: 20px;
-      background: #4CAF50;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-  </style>
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Desafio 30 Dias</title>
+<style>
+:root{/*green1:#7dd87d;green2:#3c7a3c;neutral:#f5f8f5;card:#fff;muted:#233*/}
+*{box-sizing:border-box}body{margin:0;font-family:Inter, Poppins, sans-serif;background:var(--neutral);color:var(--muted)}
+.topbar{position:sticky;top:0;display:flex;justify-content:space-between;padding:10px 20px;background:#fff;z-index:50}
+.btn{padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:700}
+.btn-primary{padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:700;background:linear-gradient(90deg,#7dd87d,#3c7a3c);color:#053216}
+.hero{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;background:#000}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.6)}
+.hero-title{color:#fff;font-size:2.6rem;font-weight:900;text-shadow:0 18px 40px rgba(0,0,0,0.45)}
+main{max-width:1100px;margin:28px auto;padding:0 20px}
+.module{background:#fff;padding:28px;border-radius:12px;margin:18px 0;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+.module-contrast{background:linear-gradient(180deg,#f7fff8,#ecfff0)}
+.module-contrast-2{background:linear-gradient(180deg,#f1eaf8,#efe6f4)}
+.module-contrast-3{background:linear-gradient(180deg,#fff0f5,#ffeef8)}
+.module h2{margin-top:0;color:#3c7a3c}
+.module p{color:#364734}
+.module-img{width:100%;border-radius:12px;margin-top:12px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.04)}
+.floating-btn{position:fixed;right:18px;bottom:18px;z-index:9999;background:linear-gradient(90deg,#7dd87d,#3c7a3c);color:#043216;padding:14px 20px;border-radius:999px;font-weight:800;cursor:pointer;border:none}
+.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998}
+.toast{background:linear-gradient(90deg,#7dd87d,#3c7a3c);color:#063216;padding:12px 16px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:all .45s ease}
+.toast.show{opacity:1;transform:translateY(0)}
+footer{text-align:center;padding:28px;background:linear-gradient(90deg,#eaf8ef,#d7f1e6);border-radius:12px;margin:28px 20px}
+</style>
 </head>
 <body>
-
-  <div class="hero">
-    <h1>Desafio dos 30 Dias</h1>
-  </div>
-
-  <section class="module">
-    <h2>Apresentação do Programa</h2>
-    <p>Em 30 dias, transforme sua rotina, conquiste mais disposição, foco e equilíbrio entre corpo e mente com práticas simples e eficazes. Acesse conteúdos exclusivos e receba acompanhamento diário.</p>
-    <a href="https://pay.kiwify.com.br/qlEvpiq" class="cta-button">Comprar Agora</a>
-  </section>
-
-  <section class="highlight">
-    <h2>Acompanhamento Diário</h2>
-    <p>Receba mensagens e desafios diários com exercícios, dicas e boas práticas para manter sua evolução constante durante os 30 dias do projeto.</p>
-  </section>
-
-  <section class="module">
-    <h2>Grupo de Apoio</h2>
-    <p>Participe de uma comunidade exclusiva com pessoas reais que estão no mesmo desafio. Troque experiências, compartilhe resultados e mantenha-se motivado!</p>
-    <a href="#" class="cta-button">Entrar no Grupo</a>
-  </section>
-
-  <section class="highlight">
-    <h2>Feedbacks de Transformação</h2>
-    <p>"Em 2 semanas já me sentia mais leve e focado!" — <strong>Fernando</strong></p>
-    <p>"Adorei o acompanhamento diário, me manteve firme!" — <strong>Valéria</strong></p>
-    <p>"Consegui dormir melhor e manter a alimentação equilibrada!" — <strong>Pedro</strong></p>
-  </section>
-
-  <section class="module">
-    <h2>Guia de Autoestima</h2>
-    <p>Desenvolva autoconfiança e amor próprio com exercícios mentais e reflexões práticas para melhorar seu bem-estar emocional e pessoal.</p>
-  </section>
-
-  <footer>
-    <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" style="color:#4CAF50;">(21) 99745-3119</a></p>
-    <p>📧 E-mail: marketingmrkt2025@gmail.com</p>
-    <p>© 2025 Corpo & Mente - Todos os direitos reservados.</p>
-  </footer>
-
-  <button class="floating-btn" onclick="window.location.href='https://pay.kiwify.com.br/qlEvpiq'">
-    QUERO INICIAR O PROJETO 30 DIAS
-  </button>
-
-  <div id="notification" class="notification"></div>
-
-  <script>
-    const names = ['Fernando', 'Pedro', 'Valéria', 'Carla', 'André', 'Julia', 'Marcos'];
-    const notification = document.getElementById('notification');
-
-    function showNotification() {
-      const name = names[Math.floor(Math.random() * names.length)];
-      notification.textContent = `${name} acabou de adquirir o Desafio 30 Dias! 🎉`;
-      notification.style.opacity = 1;
-      setTimeout(() => { notification.style.opacity = 0; }, 4000);
-      const interval = Math.floor(Math.random() * (9000 - 6000)) + 6000;
-      setTimeout(showNotification, interval);
-    }
-    setTimeout(showNotification, 5000);
-  </script>
-</body>
-</html>
+<div class="topbar"><div style="font-weight:800">Desafio dos 30 Dias</div><div><a class="btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a></div></div>
+<header class="hero"><img src="assets/5142201c-932a-4021-b32c-bd8764bdc063.png" alt="Banner"><div style="position:relative;z-index:2;text-align:center"><div class="hero-title">DESAFIO DOS 30 DIAS</div><p style="color:#f4f7f4;max-width:900px;margin:12px auto">Um programa completo para sua saúde, foco e autoestima. Acompanhamento diário e grupo de apoio.</p><div style="margin-top:12px"><a class="btn-primary" href="https://pay.kiwify.com.br/qlEvpiq">Comece Agora — R$ 42,50</a></div></div></header>
+<main>
+<section class="module module-contrast"><h2>Apresentação do Programa</h2><p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong>.</p><img class="module-img" src="assets/apresentacao-programa.jpg" alt="Apresentacao"><p style="font-weight:700">Você está a um passo de viver sua melhor versão — o momento é agora!</p><p><a class="btn-primary" href="https://pay.kiwify.com.br/qlEvpiq">QUERO COMEÇAR AGORA</a></p></section>
+<section id="alimentacao" class="module module-contrast" style="background:linear-gradient(180deg,#f7fff8,#ecfff0)"><h2>Alimentação Saudável</h2><p>Receitas fáceis, listas de compras práticas e estratégias para aumentar energia e controlar desejos.</p><div class="grid-3" style="margin-top:12px"><div class="card"><img class="module-img" src="assets/alimentacao1.jpg" alt="a1"><h4>Receitas simples</h4></div><div class="card"><img class="module-img" src="assets/alimentacao2.jpg" alt="a2"><h4>Planejamento</h4></div><div class="card"><img class="module-img" src="assets/alimentacao3.jpg" alt="a3"><h4>Controle de desejos</h4></div></div></section>
+<section id="exercicios" class="module module-contrast-2"><h2>Exercícios em Casa</h2><p>Sequências de 10–20 minutos com progressão.</p><img class="module-img" src="assets/exercicios.jpg" alt="ex"></section>
+<section id="sono" class="module module-contrast-2" style="background:linear-gradient(180deg,#f3f8ff,#e9f1ff)"><h2>Sono Reparador</h2><p>Checklist noturno e rotinas de relaxamento.</p><img class="module-img" src="assets/sono.jpg" alt="sono"></section>
+<section id="feedbacks" class="module"><h2>Feedbacks</h2><div style="display:flex;gap:12px;flex-wrap:wrap"><div class="card">“Em 15 dias já senti mais energia.” — <strong>Fernanda</strong></div><div class="card">“Recomendo!” — <strong>Pedro</strong></div><div class="card">“Melhorei meu sono.” — <strong>Valéria</strong></div></div></section>
+<section id="autoestima" class="module module-contrast-3"><h2>Guia de Autoestima</h2><p>Exercícios diários para fortalecer a autoconfiança.</p><img class="module-img" src="assets/autoestima.jpg" alt="auto"></section>
+<section id="acompanhamento" class="module module-contrast"><h2>Acompanhamento Diário</h2><p>Envios diários com exercício do dia, dica de alimentação, micro-desafio mental e link para o conteúdo em vídeo/PDF. Envio via WhatsApp ou e-mail.</p></section>
+<section id="grupo" class="module"><h2>Grupo de Apoio Exclusivo</h2><p>Grupo fechado e moderado para suporte e troca.</p><p><a class="btn-primary" href="#" target="_blank">Entrar no Grupo</a></p></section>
+<section class="module" style="text-align:center;background:linear-gradient(180deg,#f7fff8,#f0fff4)"><h2>Pronto para começar?</h2><p>De R$80,00 por <strong>R$42,50</strong></p><p><a class="btn-primary" href="https://pay.kiwify.com.br/qlEvpiq">Comprar Agora — R$ 42,50</a></p></section>
+</main>
+<button class="floating-btn" onclick="window.open('https://pay.kiwify.com.br/qlEvpiq')">QUERO INICIAR O PROJETO 30 DIAS</button>
+<div class="toast-wrap" id="toastWrap"></div>
+<footer><p><strong>Contato</strong></p><p>📱 <a href="https://wa.me/5521997453119">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p></footer>
+<script>
+(function(){
+  const wrap = document.getElementById('toastWrap');
+  const names = ['Fernando','Pedro','Valéria','Mariana','Lucas','Ana','Carla','João','Beatriz','Sofia','Rafael','Bruno'];
+  const cities = ['São Paulo','Recife','Curitiba','Rio de Janeiro','Belo Horizonte','Porto Alegre'];
+  function createToast(text){
+    if(!wrap) return;
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = '✅ ' + text;
+    wrap.appendChild(el);
+    requestAnimationFrame(function(){ el.classList.add('show'); });
+    setTimeout(function(){ el.classList.remove('show'); setTimeout(function(){ try{ wrap.removeChild(el) }catch(e){} },400); }, 3200);
+  }
+  function scheduleNext(){
+    var delay = 6000 + Math.floor(Math.random()*3000);
+    setTimeout(function(){ var name = names[Math.floor(Math.random()*names.length)]; var city = cities[Math.floor(Math.random()*cities.length)]; createToast(name + ' de ' + city + ' acabou de adquirir o Desafio dos 30 Dias!'); scheduleNext(); }, delay);
+  }
+  setTimeout(scheduleNext, 1500);
+})();
+</script>
+</body></html>
