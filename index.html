@@ -1,260 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Desafio dos 30 Dias — Transformando Corpo & Mente</title>
-  <meta name="description" content="Em 30 dias, conquiste mais disposição, foco e equilíbrio entre corpo e mente." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desafio 30 Dias - Corpo & Mente</title>
   <style>
-    :root{
-      --green-1: #7dd87d;
-      --green-2: #3c7a3c;
-      --accent: #b6e8b6;
-      --neutral-bg: #f5f8f5;
-      --card-bg: #ffffff;
-      --muted: #28352b;
-      --shadow: 0 14px 40px rgba(17,17,17,0.06);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Poppins", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--neutral-bg);
-      color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+    body {
+      background-color: #f4f4f4;
+      color: #333;
     }
-    a{color:inherit}
-    /* ---------- HERO (full-width banner) ---------- */
-    .hero-wrap{position:relative;width:100%;overflow:hidden;display:block}
-    .hero{
-      position:relative;
-      width:100%;
-      min-height:56vh;
-      height:calc(100vh * 0.56);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#000;
+
+    /* Banner principal */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      background: url('assets/hero_banner.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .hero img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.6);
-      -webkit-user-drag:none;user-select:none;
+    .hero h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px 40px;
+      border-radius: 10px;
+      text-align: center;
+      text-shadow: 2px 2px 8px #000;
     }
-    .hero-overlay{
-      position:relative;z-index:2;width:100%;max-width:1200px;padding:36px;display:flex;gap:28px;align-items:center;
-      margin:0 auto;
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
     }
-    .hero-left{flex:1;color:#fff;text-align:left}
-    .hero-title{
-      font-size:clamp(1.8rem, 3.2vw, 3rem);
-      margin:0 0 10px;
-      letter-spacing:0.6px;
-      font-weight:800;
-      text-transform:uppercase;
-      text-align:center;
-      text-shadow:0 18px 40px rgba(0,0,0,0.45);
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    .hero-sub{font-size:1rem;margin:0 0 18px;opacity:0.95;text-align:center}
-    .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700;cursor:pointer;border:0;
-      transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+
+    p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
     }
-    .btn-primary{background:linear-gradient(90deg,var(--green-1),var(--green-2));color:#04320f;box-shadow:0 12px 32px rgba(60,122,60,0.12)}
-    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(60,122,60,0.18)}
-    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.14)}
-    .hero-media{width:420px;flex-shrink:0;display:block}
-    .hero-media img{width:100%;border-radius:14px;box-shadow:var(--shadow)}
-    /* sticky small header for better UX on scroll */
-    .topbar{position:sticky;top:0;z-index:60;display:flex;justify-content:center;align-items:center;padding:8px 16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));backdrop-filter: blur(4px)}
-    .topbar .mini-cta{margin-left:auto}
-    /* ---------- MAIN CONTENT ---------- */
-    main{max-width:1100px;margin:28px auto;padding:0 20px}
-    .module{
-      background:var(--card-bg);border-radius:14px;padding:28px;margin:18px 0;box-shadow:var(--shadow);
+
+    .cta-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
     }
-    .module h2{margin-top:0;color:var(--green-2);font-size:1.4rem}
-    .module p{margin:10px 0;color:#39483a}
-    .module-contrast{background:linear-gradient(180deg,#f3fff6,#e9fff0)} /* subtle contrast */
-    .module-contrast-2{background:linear-gradient(180deg,#faf9ff,#f2eff9)}
-    .module-contrast-3{background:linear-gradient(180deg,#fff7f9,#fff1f6)}
-    .module-img{width:100%;max-height:360px;object-fit:cover;border-radius:10px;margin-top:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-3 .card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.04)}
-    .feedback{background:#f0fff4;padding:16px;border-radius:10px;font-style:italic;color:#13411f;margin-bottom:10px}
-    /* ---------- TOAST / NOTIFICATION ---------- */
-    .toast-wrap{position:fixed;right:20px;bottom:20px;z-index:9999}
-    .toast{
-      display:inline-block;
-      background:linear-gradient(90deg,var(--green-1),var(--green-2));
-      color:#07320f;padding:12px 16px;border-radius:12px;margin-top:10px;box-shadow:0 14px 40px rgba(20,70,20,0.18);
-      opacity:0;transform:translateY(10px);transition:all .45s cubic-bezier(.2,.9,.2,1);
-      font-weight:700;
+    .cta-button:hover {
+      background-color: #3e8e41;
     }
-    .toast.show{opacity:1;transform:translateY(0)}
-    /* ---------- FOOTER ---------- */
-    footer{margin-top:24px;padding:28px 16px;background:linear-gradient(90deg,#eaf8ef,#d7f1e6);text-align:center;border-radius:12px}
-    footer p{margin:6px 0}
-    /* responsive */
-    @media(max-width:980px){
-      .hero-overlay{padding:24px}
-      .hero-media{display:none}
-      .hero-text{text-align:center}
-      .grid-3{grid-template-columns:1fr}
+
+    /* Botão flutuante */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      animation: pulse 2s infinite;
     }
-    @media(max-width:520px){
-      .hero{min-height:48vh}
-      .hero-title{font-size:1.6rem}
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Seções diferenciadas */
+    .module {
+      background-color: #e9f7ef;
+      border-top: 6px solid #4CAF50;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 40px 20px;
+    }
+
+    .highlight {
+      background-color: #d4e9ff;
+      border-top: 6px solid #0077ff;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
   </style>
 </head>
 <body>
 
-  <!-- Topbar small (keeps buy available quickly) -->
-  <div class="topbar" role="navigation" aria-label="Barra superior">
-    <div style="font-weight:700;color:var(--green-2)">Desafio dos 30 Dias</div>
-    <div class="mini-cta" style="margin-left:auto">
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank" rel="noopener" style="padding:8px 14px;font-size:0.95rem">Comprar Agora</a>
-    </div>
+  <div class="hero">
+    <h1>Desafio dos 30 Dias</h1>
   </div>
 
-  <!-- HERO full-width banner -->
-  <div class="hero-wrap">
-    <header class="hero" role="banner" aria-label="Banner principal">
-      <!-- Use assets/hero_banner.png (coloque a sua imagem enviada lá) -->
-      <img src="assets/hero_banner.png" alt="Desafio 30 Dias – Transformando Corpo e Mente" onerror="this.src='https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1400&q=60'">
-      <div class="hero-overlay" role="region" aria-label="Apresentação">
-        <div class="hero-left">
-          <!-- Title fixed over banner (centralized) -->
-          <h1 class="hero-title" style="text-align:center">DESAFIO DOS 30 DIAS</h1>
-          <p class="lead hero-sub" style="text-align:center">Um programa completo para sua saúde, foco e autoestima. Plano diário prático, vídeos curtos e suporte.</p>
-          <div class="ctas" style="justify-content:center">
-            <a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank" rel="noopener">Comece Agora — R$ 42,50</a>
-            <a class="btn btn-outline" href="#modules">Ver módulos</a>
-          </div>
-          <p style="margin-top:12px;text-align:center;font-weight:700;color:#f4f8f4">Oferta de lançamento — <del style="opacity:.8;color:#d6d6d6">R$ 80,00</del> <span style="color:var(--green-2)">R$ 42,50</span></p>
-        </div>
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/hero_banner.png" alt="Visual representativo" onerror="this.src='https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1200&q=60'">
-        </div>
-      </div>
-    </header>
-  </div>
+  <section class="module">
+    <h2>Apresentação do Programa</h2>
+    <p>Em 30 dias, transforme sua rotina, conquiste mais disposição, foco e equilíbrio entre corpo e mente com práticas simples e eficazes. Acesse conteúdos exclusivos e receba acompanhamento diário.</p>
+    <a href="https://pay.kiwify.com.br/qlEvpiq" class="cta-button">Comprar Agora</a>
+  </section>
 
-  <main>
-    <!-- MODULE 1 - Apresentacao -->
-    <section id="modules" class="module module-contrast">
-      <h2>Apresentação do Produto</h2>
-      <p>O <strong>Desafio 30 Dias</strong> combina alimentação inteligente, movimento diário, sono reparador e práticas de autoestima para transformar seu bem-estar. Tudo em passos simples e práticos pra encaixar no dia a dia.</p>
-      <img class="module-img" src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=1400&q=60" alt="Visão geral do programa">
-    </section>
+  <section class="highlight">
+    <h2>Acompanhamento Diário</h2>
+    <p>Receba mensagens e desafios diários com exercícios, dicas e boas práticas para manter sua evolução constante durante os 30 dias do projeto.</p>
+  </section>
 
-    <!-- MODULE 2 - Alimentacao -->
-    <section id="alimentacao" class="module" style="background:linear-gradient(180deg,#f7fff8,#ecfff0)">
-      <h2>Aprenda Alimentação Saudável</h2>
-      <p>Receitas nutritivas, listas de compras práticas e estratégias para manter saciedade e energia sem dietas radicais.</p>
-      <div class="grid-3" style="margin-top:14px">
-        <div class="card"><img class="module-img" src="https://images.unsplash.com/photo-1547592166-4b6b2b0b7a57?auto=format&fit=crop&w=800&q=60" alt=""><h4 style="margin:8px 0 0">Receitas simples</h4></div>
-        <div class="card"><img class="module-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" alt=""><h4 style="margin:8px 0 0">Planejamento</h4></div>
-        <div class="card"><img class="module-img" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60" alt=""><h4 style="margin:8px 0 0">Controle de desejos</h4></div>
-      </div>
-    </section>
+  <section class="module">
+    <h2>Grupo de Apoio</h2>
+    <p>Participe de uma comunidade exclusiva com pessoas reais que estão no mesmo desafio. Troque experiências, compartilhe resultados e mantenha-se motivado!</p>
+    <a href="#" class="cta-button">Entrar no Grupo</a>
+  </section>
 
-    <!-- MODULE 3 - Exercicios -->
-    <section id="exercicios" class="module module-contrast-2">
-      <h2>Aprenda Exercícios em Casa</h2>
-      <p>Rotinas de 10–20 minutos para força, mobilidade e condicionamento, fáceis de adaptar ao seu nível.</p>
-      <img class="module-img" src="https://images.unsplash.com/photo-1594737625785-cb37d7dbfac4?auto=format&fit=crop&w=1400&q=60" alt="Exercícios em casa">
-    </section>
+  <section class="highlight">
+    <h2>Feedbacks de Transformação</h2>
+    <p>"Em 2 semanas já me sentia mais leve e focado!" — <strong>Fernando</strong></p>
+    <p>"Adorei o acompanhamento diário, me manteve firme!" — <strong>Valéria</strong></p>
+    <p>"Consegui dormir melhor e manter a alimentação equilibrada!" — <strong>Pedro</strong></p>
+  </section>
 
-    <!-- MODULE 4 - Sono -->
-    <section id="sono" class="module" style="background:linear-gradient(180deg,#f3f8ff,#e9f1ff)">
-      <h2>Sono Reparador</h2>
-      <p>Higiene do sono, rotinas noturnas e técnicas de relaxamento para recuperação física e mental.</p>
-      <img class="module-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=60" alt="Sono reparador">
-    </section>
+  <section class="module">
+    <h2>Guia de Autoestima</h2>
+    <p>Desenvolva autoconfiança e amor próprio com exercícios mentais e reflexões práticas para melhorar seu bem-estar emocional e pessoal.</p>
+  </section>
 
-    <!-- MODULE 5 - Feedbacks -->
-    <section id="feedbacks" class="module" style="background:#ffffff">
-      <h2>Feedbacks</h2>
-      <div class="feedback">“Em 15 dias já senti mais energia e clareza mental.” — <strong>Fernanda</strong></div>
-      <div class="feedback">“Rotinas simples e fáceis de seguir. Recomendo!” — <strong>Pedro</strong></div>
-      <div class="feedback">“Melhorei meu sono e minha concentração.” — <strong>Valéria</strong></div>
-    </section>
-
-    <!-- MODULE 6 - Autoestima -->
-    <section id="autoestima" class="module module-contrast-3">
-      <h2>Guia de Autoestima</h2>
-      <p>Exercícios e práticas para fortalecer a autoconfiança, celebrar pequenas vitórias e melhorar a relação com seu corpo.</p>
-      <img class="module-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=60" alt="Autoestima e bem-estar">
-    </section>
-
-    <!-- FINAL CTA (botão de compra no final) -->
-    <section class="module" style="text-align:center;background:linear-gradient(180deg,#f7fff8,#f0fff4)">
-      <h2>Pronto para começar?</h2>
-      <p>Garanta seu acesso agora e comece a transformação: de <del>R$ 80,00</del> por <strong>R$ 42,50</strong>.</p>
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank" rel="noopener" style="font-size:1.05rem;padding:14px 28px">💳 Comprar Agora — R$ 42,50</a>
-    </section>
-  </main>
-
-  <!-- FOOTER / CONTACT -->
   <footer>
-    <p style="font-weight:700">Contato</p>
-    <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank" rel="noopener">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
-    <p style="opacity:0.9;margin-top:8px">© 2025 Desafio 30 Dias — Transformando Corpo & Mente</p>
+    <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" style="color:#4CAF50;">(21) 99745-3119</a></p>
+    <p>📧 E-mail: marketingmrkt2025@gmail.com</p>
+    <p>© 2025 Corpo & Mente - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Toast notifications -->
-  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+  <button class="floating-btn" onclick="window.location.href='https://pay.kiwify.com.br/qlEvpiq'">
+    QUERO INICIAR O PROJETO 30 DIAS
+  </button>
+
+  <div id="notification" class="notification"></div>
 
   <script>
-    // Notificações de compra: intervalo aleatório entre 6000 e 9000 ms
-    (function(){
-      const names = ['Fernando','Pedro','Valéria','Mariana','Lucas','Ana','Carla','João','Beatriz','Sofia','Rafael','Bruno'];
-      const cities = ['São Paulo','Recife','Curitiba','Rio de Janeiro','Belo Horizonte','Porto Alegre','Salvador','Fortaleza'];
+    const names = ['Fernando', 'Pedro', 'Valéria', 'Carla', 'André', 'Julia', 'Marcos'];
+    const notification = document.getElementById('notification');
 
-      const wrap = document.getElementById('toastWrap');
-
-      function createToast(text){
-        if(!wrap) return;
-        const el = document.createElement('div');
-        el.className = 'toast';
-        el.setAttribute('role','status');
-        el.textContent = '✅ ' + text;
-        wrap.appendChild(el);
-        // show
-        requestAnimationFrame(()=> el.classList.add('show'));
-        // hide
-        setTimeout(()=> {
-          el.classList.remove('show');
-          setTimeout(()=> { try{ wrap.removeChild(el); } catch(e){} }, 500);
-        }, 3200); // visible ~3.2s
-      }
-
-      function scheduleNextSale(){
-        const delay = 6000 + Math.floor(Math.random()*3000); // 6000..8999
-        setTimeout(()=> {
-          const name = names[Math.floor(Math.random()*names.length)];
-          const city = cities[Math.floor(Math.random()*cities.length)];
-          createToast(`${name} de ${city} acabou de adquirir o Desafio dos 30 Dias!`);
-          scheduleNextSale(); // schedule again
-        }, delay);
-      }
-
-      // Start after small initial delay
-      setTimeout(scheduleNextSale, 1200);
-
-      // Stop toasts when page hidden to avoid buildup
-      document.addEventListener('visibilitychange', ()=> {
-        if(document.hidden){
-          // nothing else; scheduled timeouts will still run but this avoids excessive attention
-        }
-      });
-    })();
+    function showNotification() {
+      const name = names[Math.floor(Math.random() * names.length)];
+      notification.textContent = `${name} acabou de adquirir o Desafio 30 Dias! 🎉`;
+      notification.style.opacity = 1;
+      setTimeout(() => { notification.style.opacity = 0; }, 4000);
+      const interval = Math.floor(Math.random() * (9000 - 6000)) + 6000;
+      setTimeout(showNotification, interval);
+    }
+    setTimeout(showNotification, 5000);
   </script>
-
 </body>
 </html>
