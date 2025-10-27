@@ -1,42 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corpo e Mente - Apresentação</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Desafio dos 30 Dias — Corpo & Mente</title>
+<meta name="description" content="Transforme corpo e mente em 30 dias. Acompanhamento diário, grupo e suporte." />
+<style>
+:root{--green1:#7dd87d;--green2:#3c7a3c;--neutral:#f5f8f5;--card:#ffffff;--muted:#233;}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:var(--neutral);color:var(--muted);}
+a{color:inherit;text-decoration:none}
+.topbar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.topbar .brand{font-weight:800;color:var(--green2)}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--green1),var(--green2));color:#053216;box-shadow:0 10px 30px rgba(60,122,60,0.12)}
+.hero{position:relative;width:100%;min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.62)}
+.hero-overlay{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:36px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
+.hero-title{font-size:clamp(1.8rem,3.2vw,3rem);margin:0;color:#fff;font-weight:900;text-transform:uppercase;text-align:center;text-shadow:0 18px 40px rgba(0,0,0,0.45)}
+.hero-phrase{position:absolute;left:50%;top:58%;transform:translateX(-50%);color:rgba(255,255,255,0.95);font-size:1.6rem;font-style:italic;background:rgba(0,0,0,0.25);padding:12px 20px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+
+/* green line behind section titles */
+.section-title{position:relative;display:inline-block;padding:8px 18px;font-size:1.6rem;font-weight:800;color:var(--green2);margin:0 auto 12px}
+.section-title:before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,8px);width:120%;height:16px;background:var(--green1);z-index:-1;border-radius:6px;opacity:0.45}
+
+/* main */
+main{max-width:1100px;margin:28px auto;padding:0 20px}
+.module{background:var(--card);border-radius:14px;padding:28px;margin:18px 0;box-shadow:0 14px 40px rgba(17,17,17,0.06)}
+.module-contrast{background:linear-gradient(180deg,#f7fff8,#ecfff0)}
+.module-contrast-2{background:linear-gradient(180deg,#f1eaf8,#efe6f4)}
+.module-contrast-3{background:linear-gradient(180deg,#fff0f5,#ffeef8)}
+.module h2{margin-top:0;color:var(--green2);text-align:center}
+.module p{color:#364734}
+.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.04)}
+
+/* floating CTA */
+.floating-btn{position:fixed;right:18px;bottom:18px;z-index:9999;background:linear-gradient(90deg,var(--green1),var(--green2));color:#043216;padding:14px 20px;border-radius:999px;font-weight:800;box-shadow:0 14px 40px rgba(20,70,20,0.18);cursor:pointer;border:none}
+
+/* toast notifications */
+.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998}
+.toast{background:linear-gradient(90deg,var(--green1),var(--green2));color:#063216;padding:12px 16px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:all .45s ease;box-shadow:0 12px 36px rgba(20,70,20,0.14);font-weight:700}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* footer */
+footer{text-align:center;padding:28px 12px;background:linear-gradient(90deg,#eaf8ef,#d7f1e6);margin-top:28px;border-radius:12px}
+
+/* responsive */
+@media(max-width:900px){.hero-overlay{padding:18px}.hero-phrase{font-size:1.1rem;top:62%}.grid-3{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-<header class="banner-principal">
-    <h1>Fique de bem com seu corpo e mente</h1>
+<div class="topbar">
+  <div class="brand">Desafio dos 30 Dias</div>
+  <div class="buy"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a></div>
+</div>
+
+<header class="hero" role="banner">
+  <img src="assets/hero_banner_user.png" alt="Banner - Desafio dos 30 Dias">
+  <div class="hero-overlay" role="region" aria-label="Apresentação">
+    <div style="width:100%;text-align:center">
+      <div class="hero-title">DESAFIO DOS 30 DIAS</div>
+      <div class="lead" style="color:#f4f7f4; margin-top:12px; max-width:900px; margin-left:auto; margin-right:auto;">Um programa completo para sua saúde, foco e autoestima. Acompanhe diariamente com exercícios, dicas de alimentação e suporte de comunidade.</div>
+    </div>
+  </div>
+  <div class="hero-phrase">Fique de bem com seu corpo e mente.</div>
 </header>
 
-<section class="apresentacao">
-    <div class="titulo-sessao">
-        <h2>Apresentação do Programa</h2>
-        <div class="linha-verde"></div>
-    </div>
-    <div class="conteudo">
-        <img src="img/apresentacao.png" alt="Apresentação do Programa">
-        <p>Descubra um novo caminho para equilibrar corpo e mente com nosso programa completo de bem-estar.</p>
-    </div>
-</section>
+<main id="modules">
+  <section id="apresentacao" class="module module-contrast">
+    <h2 class="section-title">Apresentação do Programa</h2>
+    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong> de participantes para trocar experiências e manter a motivação.</p>
+    <img class="module-img" src="assets/apresentacao-programa.jpg" alt="Apresentação do Programa">
+    <p style="font-weight:700;margin-top:10px;text-align:center">Você está a um passo de viver sua melhor versão — o momento é agora!</p>
+    <p style="text-align:center"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">QUERO COMEÇAR AGORA</a></p>
+  </section>
 
-<section class="produto">
-    <div class="titulo-sessao">
-        <h2>Sobre o Produto</h2>
-        <div class="linha-verde"></div>
+  <section id="alimentacao" class="module module-contrast">
+    <h2 class="section-title">Alimentação Saudável</h2>
+    <p>Receitas fáceis, listas de compras práticas e estratégias para aumentar energia e controlar desejos — sem dietas restritivas.</p>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="card"><img class="module-img" src="assets/alimentacao1.jpg" alt="Receitas simples"></div>
+      <div class="card"><img class="module-img" src="assets/alimentacao2.jpg" alt="Planejamento"></div>
+      <div class="card"><img class="module-img" src="assets/alimentacao3.jpg" alt="Controle de desejos"></div>
     </div>
-    <div class="conteudo">
-        <img src="img/produto.png" alt="Produto Corpo e Mente">
-        <p>O infoproduto Corpo e Mente oferece práticas, guias e estratégias para alcançar equilíbrio físico e emocional.</p>
-    </div>
-    <div class="cta">
-        <p>Comece sua jornada hoje e transforme sua vida!</p>
-        <button class="btn-comprar">Quero Participar</button>
-    </div>
-</section>
+  </section>
 
+  <section id="exercicios" class="module module-contrast-2">
+    <h2 class="section-title">Exercícios em Casa</h2>
+    <p>Sequências de 10–20 minutos: aquecimento, parte principal e alongamento. Versões iniciante/intermediário/avançado para cada exercício.</p>
+    <img class="module-img" src="assets/exercicios.jpg" alt="Exercícios em casa">
+  </section>
+
+  <section id="sono" class="module module-contrast-2">
+    <h2 class="section-title">Sono Reparador</h2>
+    <p>Melhore a recuperação com higiene do sono: rotina, ambiente e técnicas de relaxamento.</p>
+    <img class="module-img" src="assets/sono.jpg" alt="Sono reparador">
+  </section>
+
+  <section id="feedbacks" class="module">
+    <h2 class="section-title">Feedbacks</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+      <div class="card">“Em 15 dias já senti mais energia e clareza mental.” — <strong>Fernanda</strong></div>
+      <div class="card">“Rotinas simples e fáceis de seguir. Recomendo!” — <strong>Pedro</strong></div>
+      <div class="card">“Melhorei meu sono e minha concentração.” — <strong>Valéria</strong></div>
+    </div>
+  </section>
+
+  <section id="autoestima" class="module module-contrast-3">
+    <h2 class="section-title">Guia de Autoestima</h2>
+    <p>Exercícios diários para desenvolver autoaceitação: diário de gratidão, 3 conquistas do dia e prática de afirmações.</p>
+    <img class="module-img" src="assets/autoestima.jpg" alt="Autoestima">
+  </section>
+
+  <section id="acompanhamento" class="module module-contrast">
+    <h2 class="section-title">Acompanhamento Diário</h2>
+    <p>Envios diários com exercício do dia (10–20min), dica de alimentação, micro-desafio mental e link para o conteúdo do dia (vídeo/PDF). Envio pelo WhatsApp ou e-mail — você escolhe no momento da compra.</p>
+  </section>
+
+  <section id="grupo" class="module">
+    <h2 class="section-title">Grupo de Apoio Exclusivo</h2>
+    <p>Participe do grupo fechado e moderado: troque experiências, registre conquistas e participe de encontros semanais opcionais.</p>
+    <p style="text-align:center"><a class="btn btn-primary" href="#" target="_blank">Entrar no Grupo</a></p>
+  </section>
+
+  <section class="module" style="text-align:center;background:linear-gradient(180deg,#f7fff8,#f0fff4)">
+    <h2 class="section-title">Pronto para começar?</h2>
+    <p>De R$80,00 por <strong>R$42,50</strong></p>
+    <p><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">💳 Comprar Agora — R$ 42,50</a></p>
+  </section>
+</main>
+
+<button class="floating-btn" onclick="window.open('https://pay.kiwify.com.br/qlEvpiq','_blank')">QUERO INICIAR O PROJETO 30 DIAS</button>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<footer>
+  <p><strong>Contato</strong></p>
+  <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
+  <p>© 2025 Desafio dos 30 Dias — Corpo & Mente</p>
+</footer>
+
+<script>
+// Notifications: alternate between 6000 and 9000 ms intervals
+(function(){
+  const names = ['Fernando','Pedro','Valéria','Mariana','Lucas','Ana','Carla','João','Beatriz'];
+  const cities = ['São Paulo','Recife','Curitiba','Rio de Janeiro','Belo Horizonte','Porto Alegre'];
+  const wrap = document.getElementById('toastWrap');
+  let toggle = false;
+  function createToast(text){
+    if(!wrap) return;
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = '✅ ' + text;
+    wrap.appendChild(el);
+    requestAnimationFrame(()=> el.classList.add('show'));
+    setTimeout(()=> { el.classList.remove('show'); setTimeout(()=> { try{ wrap.removeChild(el); } catch(e){} }, 400); }, 3200);
+  }
+  function scheduleNext(){
+    toggle = !toggle;
+    const delay = toggle ? 6000 : 9000;
+    setTimeout(()=>{
+      const name = names[Math.floor(Math.random()*names.length)];
+      const city = cities[Math.floor(Math.random()*cities.length)];
+      createToast(`${name} de ${city} acabou de adquirir o Desafio dos 30 Dias!`);
+      scheduleNext();
+    }, delay);
+  }
+  setTimeout(scheduleNext, 1500);
+})();
+</script>
 </body>
 </html>
