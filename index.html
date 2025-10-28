@@ -1,96 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corpo & Mente</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #111111;
-        color: #ffffff;
-      }
-      header {
-        background-color: #000000;
-        color: #ffffff;
-        text-align: center;
-        padding: 20px;
-        font-size: 1.8em;
-      }
-      .module {
-        max-width: 900px;
-        margin: 40px auto;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        padding: 40px;
-        text-align: center;
-      }
-      h2 {
-        background: rgba(255,255,255,0.15);
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 10px;
-        color: #ffffff;
-      }
-      img {
-        max-width: 100%;
-        border-radius: 15px;
-        margin-top: 20px;
-      }
-      footer {
-        background-color: #000000;
-        color: #ffffff;
-        text-align: center;
-        padding: 15px;
-        margin-top: 40px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Programa Corpo & Mente</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpo & Mente</title>
 
+  <style>
+    /* ======= Estilo atualizado - Corpo & Mente ======= */
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d; /* Preto suave */
+      color: #f5f5f5;
+      text-align: center;
+    }
+
+    header {
+      background-color: #000000; /* Preto sólido */
+      padding: 40px 0;
+      color: white;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+    }
+
+    h1, h2 {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Brilho branco */
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 0;
+    }
+
+    .module {
+      width: 80%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.08); /* Transparência */
+      backdrop-filter: blur(8px); /* Efeito vidro */
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .module h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .module p {
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
+
+    .imagem-exemplo {
+      margin-top: 20px;
+      padding: 30px;
+      border: 2px dashed rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      color: #ccc;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9em;
+    }
+
+    /* ======= Animação de aparição suave ======= */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.3s; }
+    section:nth-child(2) { animation-delay: 0.6s; }
+    section:nth-child(3) { animation-delay: 0.9s; }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Programa Corpo & Mente</h1>
+  </header>
+
+  <main>
+    <!-- 1. Apresentação -->
     <section id="apresentacao" class="module">
       <h2>Apresentação do Programa</h2>
-      <p>Conheça o método Corpo & Mente: um guia completo para melhorar sua saúde física e mental em apenas 30 dias.</p>
-      <!-- IMAGEM_APRESENTACAO -->
-      <img src="imagens/exemplo_apresentacao.jpg" alt="Exemplo Apresentação">
+      <p>
+        Conheça o método Corpo & Mente: um guia completo para melhorar sua
+        saúde física e mental em apenas 30 dias.
+      </p>
+      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-APRESENTAÇÃO</div>
     </section>
 
+    <!-- 2. Acompanhamento Diário -->
     <section id="acompanhamento" class="module">
       <h2>Acompanhamento Diário</h2>
-      <p>Receba orientações e acompanhamento personalizado a cada etapa do processo, garantindo motivação e constância.</p>
-      <!-- IMAGEM_ACOMPANHAMENTO -->
-      <img src="imagens/exemplo_acompanhamento.jpg" alt="Exemplo Acompanhamento">
+      <p>
+        Tenha acesso a uma rotina organizada de treinos e práticas mentais,
+        com acompanhamento diário.
+      </p>
+      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-ACOMPANHAMENTO</div>
     </section>
 
-    <section id="alimentacao" class="module">
-      <h2>Plano de Alimentação</h2>
-      <p>Descubra como se alimentar de forma equilibrada sem abrir mão do prazer de comer bem.</p>
-      <!-- IMAGEM_ALIMENTACAO -->
-      <img src="imagens/exemplo_alimentacao.jpg" alt="Exemplo Alimentação">
-    </section>
-
-    <section id="mentalidade" class="module">
-      <h2>Saúde Mental e Equilíbrio</h2>
-      <p>Aprenda técnicas para controlar o estresse, dormir melhor e fortalecer sua mente para uma vida plena.</p>
-      <!-- IMAGEM_MENTALIDADE -->
-      <img src="imagens/exemplo_mentalidade.jpg" alt="Exemplo Mentalidade">
-    </section>
-
+    <!-- 3. Resultados -->
     <section id="resultados" class="module">
-      <h2>Resultados Reais</h2>
-      <p>Veja transformações inspiradoras de pessoas que aplicaram o método Corpo & Mente.</p>
-      <!-- IMAGEM_RESULTADOS -->
-      <img src="imagens/exemplo_resultados.jpg" alt="Exemplo Resultados">
+      <h2>Resultados e Transformação</h2>
+      <p>
+        Descubra histórias inspiradoras de quem transformou corpo e mente com o nosso método.
+      </p>
+      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-RESULTADOS</div>
     </section>
+  </main>
 
-    <footer>
-      <p>© 2025 Corpo & Mente. Todos os direitos reservados.</p>
-    </footer>
-  </body>
+  <footer>
+    <p>© 2025 Corpo & Mente - Todos os direitos reservados.</p>
+  </footer>
+</body>
 </html>
