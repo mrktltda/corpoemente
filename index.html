@@ -1,144 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corpo & Mente</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Desafio dos 30 Dias — Corpo & Mente</title>
+<meta name="description" content="Transforme corpo e mente em 30 dias. Acompanhamento diário, grupo e suporte." />
+<style>
+:root{--green1:#7dd87d;--green2:#3c7a3c;--neutral:#f5f8f5;--card:#ffffff;--muted:#233;}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:var(--neutral);color:var(--muted);}
+a{color:inherit;text-decoration:none}
+.topbar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.topbar .brand{font-weight:800;color:var(--green2)}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--green1),var(--green2));color:#053216;box-shadow:0 10px 30px rgba(60,122,60,0.12)}
+.hero{position:relative;width:100%;min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.62)}
+.hero-overlay{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:36px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center}
+.hero-title{font-size:clamp(1.8rem,3.2vw,3rem);margin:0;color:#fff;font-weight:900;text-transform:uppercase;text-align:center;text-shadow:0 18px 40px rgba(0,0,0,0.45)}
+.hero-phrase{position:absolute;left:50%;top:58%;transform:translateX(-50%);color:rgba(255,255,255,0.95);font-size:1.6rem;font-style:italic;background:rgba(0,0,0,0.25);padding:12px 20px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
 
-  <style>
-    /* ======= Estilo atualizado - Corpo & Mente ======= */
+/* green line behind section titles */
+.section-title{position:relative;display:inline-block;padding:8px 18px;font-size:1.6rem;font-weight:800;color:var(--green2);margin:0 auto 12px}
+.section-title:before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,8px);width:120%;height:16px;background:var(--green1);z-index:-1;border-radius:6px;opacity:0.45}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d0d0d; /* Preto suave */
-      color: #f5f5f5;
-      text-align: center;
-    }
+/* main */
+main{max-width:1100px;margin:28px auto;padding:0 20px}
+.module{background:var(--card);border-radius:14px;padding:28px;margin:18px 0;box-shadow:0 14px 40px rgba(17,17,17,0.06)}
+.module-contrast{background:linear-gradient(180deg,#f7fff8,#ecfff0)}
+.module-contrast-2{background:linear-gradient(180deg,#f1eaf8,#efe6f4)}
+.module-contrast-3{background:linear-gradient(180deg,#fff0f5,#ffeef8)}
+.module h2{margin-top:0;color:var(--green2);text-align:center}
+.module p{color:#364734}
+.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.04)}
 
-    header {
-      background-color: #000000; /* Preto sólido */
-      padding: 40px 0;
-      color: white;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(255,255,255,0.1);
-    }
+/* floating CTA */
+.floating-btn{position:fixed;right:18px;bottom:18px;z-index:9999;background:linear-gradient(90deg,var(--green1),var(--green2));color:#043216;padding:14px 20px;border-radius:999px;font-weight:800;box-shadow:0 14px 40px rgba(20,70,20,0.18);cursor:pointer;border:none}
 
-    h1, h2 {
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Brilho branco */
-    }
+/* toast notifications */
+.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998}
+.toast{background:linear-gradient(90deg,var(--green1),var(--green2));color:#063216;padding:12px 16px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:all .45s ease;box-shadow:0 12px 36px rgba(20,70,20,0.14);font-weight:700}
+.toast.show{opacity:1;transform:translateY(0)}
 
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      padding: 50px 0;
-    }
+/* footer */
+footer{text-align:center;padding:28px 12px;background:linear-gradient(90deg,#eaf8ef,#d7f1e6);margin-top:28px;border-radius:12px}
 
-    .module {
-      width: 80%;
-      max-width: 900px;
-      background: rgba(255, 255, 255, 0.08); /* Transparência */
-      backdrop-filter: blur(8px); /* Efeito vidro */
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      text-align: center;
-    }
-
-    .module h2 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-    }
-
-    .module p {
-      font-size: 1.1em;
-      color: #e0e0e0;
-    }
-
-    .imagem-exemplo {
-      margin-top: 20px;
-      padding: 30px;
-      border: 2px dashed rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
-      color: #ccc;
-      font-size: 0.9em;
-      font-style: italic;
-    }
-
-    footer {
-      background-color: #000000;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 0.9em;
-    }
-
-    /* ======= Animação de aparição suave ======= */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    section {
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    section:nth-child(1) { animation-delay: 0.3s; }
-    section:nth-child(2) { animation-delay: 0.6s; }
-    section:nth-child(3) { animation-delay: 0.9s; }
-
-  </style>
+/* responsive */
+@media(max-width:900px){.hero-overlay{padding:18px}.hero-phrase{font-size:1.1rem;top:62%}.grid-3{grid-template-columns:1fr}}
+</style>
 </head>
-
 <body>
-  <header>
-    <h1>Programa Corpo & Mente</h1>
-  </header>
 
-  <main>
-    <!-- 1. Apresentação -->
-    <section id="apresentacao" class="module">
-      <h2>Apresentação do Programa</h2>
-      <p>
-        Conheça o método Corpo & Mente: um guia completo para melhorar sua
-        saúde física e mental em apenas 30 dias.
-      </p>
-      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-APRESENTAÇÃO</div>
-    </section>
+<div class="topbar">
+  <div class="brand">Desafio dos 30 Dias</div>
+  <div class="buy"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a></div>
+</div>
 
-    <!-- 2. Acompanhamento Diário -->
-    <section id="acompanhamento" class="module">
-      <h2>Acompanhamento Diário</h2>
-      <p>
-        Tenha acesso a uma rotina organizada de treinos e práticas mentais,
-        com acompanhamento diário.
-      </p>
-      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-ACOMPANHAMENTO</div>
-    </section>
+<header class="hero" role="banner">
+  <img src="assets/hero_banner_user.png" alt="Banner - Desafio dos 30 Dias">
+  <div class="hero-overlay" role="region" aria-label="Apresentação">
+    <div style="width:100%;text-align:center">
+      <div class="hero-title">DESAFIO DOS 30 DIAS</div>
+      <div class="lead" style="color:#f4f7f4; margin-top:12px; max-width:900px; margin-left:auto; margin-right:auto;">Um programa completo para sua saúde, foco e autoestima. Acompanhe diariamente com exercícios, dicas de alimentação e suporte de comunidade.</div>
+    </div>
+  </div>
+  <div class="hero-phrase">Fique de bem com seu corpo e mente.</div>
+</header>
 
-    <!-- 3. Resultados -->
-    <section id="resultados" class="module">
-      <h2>Resultados e Transformação</h2>
-      <p>
-        Descubra histórias inspiradoras de quem transformou corpo e mente com o nosso método.
-      </p>
-      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SEÇÃO-RESULTADOS</div>
-    </section>
-  </main>
+<main id="modules">
+  <section id="apresentacao" class="module module-contrast">
+    <h2 class="section-title">Apresentação do Programa</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-APRESENTACAO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-APRESENTACAO</div>\n
+    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong> de participantes para trocar experiências e manter a motivação.</p>
+    <img class="module-img" src="assets/apresentacao-programa.jpg" alt="Apresentação do Programa">
+    <p style="font-weight:700;margin-top:10px;text-align:center">Você está a um passo de viver sua melhor versão — o momento é agora!</p>
+    <p style="text-align:center"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">QUERO COMEÇAR AGORA</a></p>
+  </section>
 
-  <footer>
-    <p>© 2025 Corpo & Mente - Todos os direitos reservados.</p>
-  </footer>
+  <section id="alimentacao" class="module module-contrast">
+    <h2 class="section-title">Alimentação Saudável</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-ALIMENTACAO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-ALIMENTACAO</div>\n
+    <p>Receitas fáceis, listas de compras práticas e estratégias para aumentar energia e controlar desejos — sem dietas restritivas.</p>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="card"><img class="module-img" src="assets/alimentacao1.jpg" alt="Receitas simples"></div>
+      <div class="card"><img class="module-img" src="assets/alimentacao2.jpg" alt="Planejamento"></div>
+      <div class="card"><img class="module-img" src="assets/alimentacao3.jpg" alt="Controle de desejos"></div>
+    </div>
+  </section>
+
+  <section id="exercicios" class="module module-contrast-2">
+    <h2 class="section-title">Exercícios em Casa</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-EXERCICIOS -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-EXERCICIOS</div>\n
+    <p>Sequências de 10–20 minutos: aquecimento, parte principal e alongamento. Versões iniciante/intermediário/avançado para cada exercício.</p>
+    <img class="module-img" src="assets/exercicios.jpg" alt="Exercícios em casa">
+  </section>
+
+  <section id="sono" class="module module-contrast-2">
+    <h2 class="section-title">Sono Reparador</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-SONO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-SONO</div>\n
+    <p>Melhore a recuperação com higiene do sono: rotina, ambiente e técnicas de relaxamento.</p>
+    <img class="module-img" src="assets/sono.jpg" alt="Sono reparador">
+  </section>
+
+  <section id="feedbacks" class="module">
+    <h2 class="section-title">Feedbacks</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-FEEDBACKS -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-FEEDBACKS</div>\n
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+      <div class="card">“Em 15 dias já senti mais energia e clareza mental.” — <strong>Fernanda</strong></div>
+      <div class="card">“Rotinas simples e fáceis de seguir. Recomendo!” — <strong>Pedro</strong></div>
+      <div class="card">“Melhorei meu sono e minha concentração.” — <strong>Valéria</strong></div>
+    </div>
+  </section>
+
+  <section id="autoestima" class="module module-contrast-3">
+    <h2 class="section-title">Guia de Autoestima</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-AUTOESTIMA -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-AUTOESTIMA</div>\n
+    <p>Exercícios diários para desenvolver autoaceitação: diário de gratidão, 3 conquistas do dia e prática de afirmações.</p>
+    <img class="module-img" src="assets/autoestima.jpg" alt="Autoestima">
+  </section>
+
+  <section id="acompanhamento" class="module module-contrast">
+    <h2 class="section-title">Acompanhamento Diário</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-ACOMPANHAMENTO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-ACOMPANHAMENTO</div>\n
+    <p>Envios diários com exercício do dia (10–20min), dica de alimentação, micro-desafio mental e link para o conteúdo do dia (vídeo/PDF). Envio pelo WhatsApp ou e-mail — você escolhe no momento da compra.</p>
+  </section>
+
+  <section id="grupo" class="module">
+    <h2 class="section-title">Grupo de Apoio Exclusivo</h2>\n      <!-- IMAGEM-EXEMPLO-SECAO-GRUPO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO-SECAO-GRUPO</div>\n
+    <p>Participe do grupo fechado e moderado: troque experiências, registre conquistas e participe de encontros semanais opcionais.</p>
+    <p style="text-align:center"><a class="btn btn-primary" href="#" target="_blank">Entrar no Grupo</a></p>
+  </section>
+
+  <section class="module" style="text-align:center;background:linear-gradient(180deg,#f7fff8,#f0fff4)">
+    <h2 class="section-title">Pronto para começar?</h2>\n      <!-- IMAGEM-EXEMPLO -->\n      <div class="imagem-exemplo">IMAGEM-EXEMPLO</div>\n
+    <p>De R$80,00 por <strong>R$42,50</strong></p>
+    <p><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">💳 Comprar Agora — R$ 42,50</a></p>
+  </section>
+</main>
+
+<button class="floating-btn" onclick="window.open('https://pay.kiwify.com.br/qlEvpiq','_blank')">QUERO INICIAR O PROJETO 30 DIAS</button>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<footer>
+  <p><strong>Contato</strong></p>
+  <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
+  <p>© 2025 Desafio dos 30 Dias — Corpo & Mente</p>
+</footer>
+
+<script>
+// Notifications: alternate between 6000 and 9000 ms intervals
+(function(){
+  const names = ['Fernando','Pedro','Valéria','Mariana','Lucas','Ana','Carla','João','Beatriz'];
+  const cities = ['São Paulo','Recife','Curitiba','Rio de Janeiro','Belo Horizonte','Porto Alegre'];
+  const wrap = document.getElementById('toastWrap');
+  let toggle = false;
+  function createToast(text){
+    if(!wrap) return;
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = '✅ ' + text;
+    wrap.appendChild(el);
+    requestAnimationFrame(()=> el.classList.add('show'));
+    setTimeout(()=> { el.classList.remove('show'); setTimeout(()=> { try{ wrap.removeChild(el); } catch(e){} }, 400); }, 3200);
+  }
+  function scheduleNext(){
+    toggle = !toggle;
+    const delay = toggle ? 6000 : 9000;
+    setTimeout(()=>{
+      const name = names[Math.floor(Math.random()*names.length)];
+      const city = cities[Math.floor(Math.random()*cities.length)];
+      createToast(`${name} de ${city} acabou de adquirir o Desafio dos 30 Dias!`);
+      scheduleNext();
+    }, delay);
+  }
+  setTimeout(scheduleNext, 1500);
+})();
+</script>
 </body>
 </html>
