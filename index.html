@@ -1,145 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corpo e Mente - Equilíbrio e Bem-Estar</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpo e Mente - Projeto 30 Dias</title>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: #f2f2f2;
+      background-color: #f3f3f3;
+      margin: 0;
       font-family: 'Poppins', sans-serif;
       color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #6cc9a1, #3b8d72);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    main {
-      padding: 40px 0;
     }
 
     section {
-      background: white;
-      margin: 40px auto;
-      padding: 80px 20px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      max-width: 1200px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    h2 {
+      padding: 60px 20px;
       text-align: center;
-      font-size: 2.4rem;
-      color: #333;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: 2em;
       margin-bottom: 20px;
+      color: #0a4125;
+      background: rgba(10, 65, 37, 0.1);
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 8px;
     }
 
-    p {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #555;
+    section img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    footer {
-      background-color: #333;
+    .cta-button {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #0a4125;
       color: white;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      margin-top: 80px;
+      padding: 16px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      animation: brilho 2s infinite alternate;
+      z-index: 1000;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      background-color: #0f5b36;
+    }
+
+    @keyframes brilho {
+      0% { box-shadow: 0 0 8px #0a4125; }
+      100% { box-shadow: 0 0 20px #00ff88; }
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>Programa Corpo e Mente</h1>
-    <p>Equilíbrio físico, mental e emocional em um só lugar</p>
+    <img src="img/banner-principal.png" alt="Banner Principal" style="width:100%; display:block;">
   </header>
 
-  <main>
-    <!-- ===== 1. Apresentação do Programa ===== -->
-    <section id="apresentacao">
-      <h2>Apresentação do Programa</h2>
-      <p>Descubra um novo estilo de vida com o programa Corpo e Mente. Um plano criado para equilibrar bem-estar físico e mental, com acompanhamento e suporte completo.</p>
-    </section>
+  <!-- 1. Apresentação do Programa -->
+  <section id="apresentacao">
+    <h2>Apresentação do Programa</h2>
+    <img src="img/apresentacao.png" alt="Apresentação do Programa">
+    <p>Descubra o caminho para transformar seu corpo e mente em apenas 30 dias com um plano completo de bem-estar.</p>
+  </section>
 
-    <!-- ===== 2. Acompanhamento Diário ===== -->
-    <section id="acompanhamento">
-      <h2>Acompanhamento Diário</h2>
-      <p>Monitore seus hábitos, evolução e bem-estar todos os dias com o nosso diário digital de progresso. Acompanhe suas metas e conquistas em tempo real.</p>
-    </section>
+  <!-- 2. Acompanhamento Diário -->
+  <section id="acompanhamento">
+    <h2>Acompanhamento Diário</h2>
+    <img src="img/acompanhamento.png" alt="Acompanhamento Diário">
+    <p>Receba todos os dias exercícios, reflexões e boas práticas para manter seu progresso constante.</p>
+  </section>
 
-    <!-- ===== 3. Alimentação Saudável ===== -->
-    <section id="alimentacao">
-      <h2>Alimentação Saudável</h2>
-      <p>Receitas práticas e balanceadas para melhorar sua energia e foco, sem abrir mão do sabor. Planeje suas refeições e aprenda sobre nutrição consciente.</p>
-    </section>
+  <!-- 3. Alimentação Saudável -->
+  <section id="alimentacao">
+    <h2>Alimentação Saudável</h2>
+    <img src="img/alimentacao.png" alt="Alimentação Saudável">
+    <p>Aprenda como uma alimentação equilibrada e prazerosa pode transformar sua energia e vitalidade.</p>
+  </section>
 
-    <!-- ===== 4. Exercícios em Casa ===== -->
-    <section id="exercicios">
-      <h2>Exercícios em Casa</h2>
-      <p>Rotinas simples e eficazes para fazer onde quiser, com instruções detalhadas e acompanhamento em vídeo. Mova-se e fortaleça o corpo de forma leve e progressiva.</p>
-    </section>
+  <!-- 4. Exercícios em Casa -->
+  <section id="exercicios">
+    <h2>Exercícios em Casa</h2>
+    <img src="img/exercicios.png" alt="Exercícios em Casa">
+    <p>Pratique atividades simples e eficazes no conforto do seu lar, com acompanhamento completo.</p>
+  </section>
 
-    <!-- ===== 5. Grupo de Apoio ===== -->
-    <section id="grupo">
-      <h2>Grupo de Apoio</h2>
-      <p>Participe de uma comunidade de pessoas com o mesmo propósito. Compartilhe experiências, tire dúvidas e receba motivação todos os dias.</p>
-    </section>
+  <!-- 5. Grupo de Apoio -->
+  <section id="grupo">
+    <h2>Grupo de Apoio</h2>
+    <img src="img/grupo.png" alt="Grupo de Apoio">
+    <p>Participe de uma comunidade exclusiva para trocar experiências, motivação e resultados incríveis.</p>
+  </section>
 
-    <!-- ===== 6. Sono Reparador ===== -->
-    <section id="sono">
-      <h2>Sono Reparador</h2>
-      <p>Aprenda técnicas e hábitos para dormir melhor, recarregar suas energias e acordar renovado. Descubra a importância do descanso para o equilíbrio emocional.</p>
-    </section>
+  <!-- 6. Sono Reparador -->
+  <section id="sono">
+    <h2>Sono Reparador</h2>
+    <img src="img/sono.png" alt="Sono Reparador">
+    <p>Entenda como melhorar a qualidade do seu sono para potencializar sua saúde mental e física.</p>
+  </section>
 
-    <!-- ===== 7. Guia de Autoestima ===== -->
-    <section id="autoestima">
-      <h2>Guia de Autoestima</h2>
-      <p>Reconecte-se com sua confiança e amor próprio. Dicas e práticas para fortalecer sua mente e desenvolver uma relação positiva com você mesmo.</p>
-    </section>
+  <!-- 7. Guia de Autoestima -->
+  <section id="autoestima">
+    <h2>Guia de Autoestima</h2>
+    <img src="img/autoestima.png" alt="Guia de Autoestima">
+    <p>Fortaleça sua mente e reencontre sua confiança com o nosso guia exclusivo de autoestima.</p>
+  </section>
 
-    <!-- ===== 8. Feedbacks ===== -->
-    <section id="feedbacks">
-      <h2>Feedbacks</h2>
-      <p>Veja o que nossos participantes dizem sobre o programa Corpo e Mente e inspire-se com suas transformações.</p>
-    </section>
-  </main>
+  <!-- 8. Feedbacks -->
+  <section id="feedbacks">
+    <h2>Feedbacks</h2>
+    <img src="img/feedbacks.png" alt="Feedbacks">
+    <p>Veja depoimentos inspiradores de quem já transformou sua vida com o nosso programa.</p>
+  </section>
 
-  <footer>
-    <p>© 2025 Corpo e Mente — Todos os direitos reservados.</p>
-  </footer>
+  <!-- Botão Flutuante -->
+  <a href="https://pay.kiwify.com.br/qlEvpiq" class="cta-button" target="_blank">
+    QUERO INICIAR O PROJETO 30 DIAS
+  </a>
+
 </body>
 </html>
