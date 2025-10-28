@@ -12,3 +12,6 @@
 ## 2025-10-28 18:35:57Z
 - Forçado no CSS: fundo cinza #d0d0d0, cabeçalho preto e destaque h2 com borda.
 
+## 2025-10-28 18:41:57Z
+- Injetado bloco <style> no head do index.html para garantir aplicação das cores (fundo, cabeçalho, h2).
+
