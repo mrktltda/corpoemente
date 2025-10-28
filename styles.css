@@ -59,3 +59,21 @@ img { max-width:100%; height:auto; display:block; }
 
 /* Floating card style */
 .card { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 18px; background: #fff; }
+
+
+/* === Ajustes visuais Corpo & Mente === */
+body {
+  background-color: #d0d0d0 !important;
+}
+
+header {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+h2 {
+  border-bottom: 3px solid #000 !important;
+  font-weight: 700 !important;
+  padding-bottom: 4px;
+}
+

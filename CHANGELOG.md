@@ -9,3 +9,6 @@
 - Cabeçalho agora preto com texto branco
 - Adicionado destaque visual aos títulos (h2)
 
+## 2025-10-28 18:35:57Z
+- Forçado no CSS: fundo cinza #d0d0d0, cabeçalho preto e destaque h2 com borda.
+
