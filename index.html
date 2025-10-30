@@ -82,23 +82,40 @@ main{max-width:1100px;margin:28px auto;padding:0 20px;text-align:center}
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
-/* quando visível */
 .module-img.visible {
   opacity: 1;
   transform: translateY(0);
 }
+.module:nth-of-type(even) .module-img.visible { animation: slideInLeft 1s ease forwards; }
+.module:nth-of-type(odd) .module-img.visible { animation: slideInRight 1s ease forwards; }
 
-/* alternância de direção */
-.module:nth-of-type(even) .module-img.visible {
-  animation: slideInLeft 1s ease forwards;
+/* FEEDBACKS */
+.feedbacks-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  justify-items: center;
 }
-.module:nth-of-type(odd) .module-img.visible {
-  animation: slideInRight 1s ease forwards;
+.feedbacks-gallery img {
+  width: 100%;
+  max-width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{background:rgba(255,255,255,0.08);border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.4)}
+.feedbacks-gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+@media(max-width: 600px) {
+  .feedbacks-gallery img {
+    max-width: 180px;
+    height: 120px;
+  }
+}
 
 .floating-btn{
   position:fixed;
@@ -115,10 +132,6 @@ main{max-width:1100px;margin:28px auto;padding:0 20px;text-align:center}
   border:none;
 }
 
-.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998}
-.toast{background:linear-gradient(90deg,var(--green1),var(--green2));color:#063216;padding:12px 16px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:all .45s ease;box-shadow:0 12px 36px rgba(20,70,20,0.14);font-weight:700}
-.toast.show{opacity:1;transform:translateY(0)}
-
 footer{text-align:center;padding:28px 12px;background:rgba(255,255,255,0.05);margin-top:28px;border-radius:12px;color:#ddd}
 footer a{color:var(--green1)}
 footer .social{margin-top:10px}
@@ -134,7 +147,7 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
 <body>
 
 <div class="topbar">
-  <div class="brand">Desafio dos 30 Dias</div>
+  <div class="brand">Desafio Dos 30 Dias</div>
   <div class="buy"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a></div>
 </div>
 
@@ -150,13 +163,10 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
 </header>
 
 <main id="modules">
-
   <section id="apresentacao" class="module module-contrast">
-    <h2 class="section-title">TRANSFORME SUA VIDA AGORA MESMO</h2>
-    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong> de participantes para trocar experiências e manter a motivação.</p>
+    <h2 class="section-title">Transforme Sua Vida Agora Mesmo</h2>
+    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong> de participantes.</p>
     <img class="module-img" src="assets/apresentacao-programa.jpeg" alt="Apresentação do Programa">
-    <p style="font-weight:700;margin-top:10px;">Você está a um passo de viver sua melhor versão — o momento é agora!</p>
-    <p><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">QUERO COMEÇAR AGORA</a></p>
   </section>
 
   <section id="alimentacao" class="module module-contrast">
@@ -171,51 +181,42 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
 
   <section id="exercicios" class="module module-contrast-2">
     <h2 class="section-title">Exercícios em Casa</h2>
-    <p>Sequências de 10–20 minutos: aquecimento, parte principal e alongamento. Versões iniciante/intermediário/avançado para cada exercício.</p>
+    <p>Sequências de 10–20 minutos com versões iniciante, intermediário e avançado.</p>
     <img class="module-img" src="assets/exerciciosemcasa.jpeg" alt="Exercícios em casa">
   </section>
 
   <section id="sono" class="module module-contrast-2">
     <h2 class="section-title">Sono Reparador</h2>
-    <p>Melhore a recuperação com higiene do sono: rotina, ambiente e técnicas de relaxamento.</p>
+    <p>Melhore sua recuperação com técnicas de relaxamento e rotina noturna saudável.</p>
     <img class="module-img" src="assets/sonoreparador.jpeg" alt="Sono reparador">
   </section>
 
   <section id="feedbacks" class="module">
-  <h2 class="section-title">Feedbacks</h2>
-  <div class="feedbacks-gallery">
-    <img src="assets/feedback1.jpeg" alt="Feedback 1">
-    <img src="assets/feedback2.jpeg" alt="Feedback 2">
-    <img src="assets/feedback3.jpeg" alt="Feedback 3">
-    <img src="assets/feedback4.jpeg" alt="Feedback 4">
-    <img src="assets/feedback5.jpeg" alt="Feedback 5">
-    <img src="assets/feedback6.jpeg" alt="Feedback 6">
-  </div>
-</section>
-
-
+    <h2 class="section-title">Feedbacks</h2>
+    <div class="feedbacks-gallery">
+      <img src="assets/feedback1.jpeg" alt="Feedback 1">
+      <img src="assets/feedback2.jpeg" alt="Feedback 2">
+      <img src="assets/feedback3.jpeg" alt="Feedback 3">
+      <img src="assets/feedback4.jpeg" alt="Feedback 4">
+      <img src="assets/feedback5.jpeg" alt="Feedback 5">
+      <img src="assets/feedback6.jpeg" alt="Feedback 6">
+    </div>
+  </section>
 
   <section id="autoestima" class="module module-contrast-3">
     <h2 class="section-title">Guia de Autoestima</h2>
-    <p>Exercícios diários para desenvolver autoaceitação: diário de gratidão, 3 conquistas do dia e prática de afirmações.</p>
+    <p>Exercícios diários para desenvolver autoaceitação e confiança.</p>
     <img class="module-img" src="assets/autoestima.jpeg" alt="Autoestima">
   </section>
 
   <section id="acompanhamento" class="module module-contrast">
     <h2 class="section-title">Acompanhamento Diário</h2>
-    <p>Envios diários com exercício do dia (10–20min), dica de alimentação, micro-desafio mental e link para o conteúdo do dia (vídeo/PDF). Envio pelo WhatsApp ou e-mail — você escolhe no momento da compra.</p>
+    <p>Envios diários com exercícios, dicas e desafios mentais por WhatsApp ou e-mail.</p>
   </section>
 
   <section id="grupo" class="module">
     <h2 class="section-title">Grupo de Apoio Exclusivo</h2>
-    <p>Participe do grupo fechado e moderado: troque experiências, registre conquistas e participe de encontros semanais opcionais.</p>
-    <p><a class="btn btn-primary" href="#" target="_blank">Entrar no Grupo</a></p>
-  </section>
-
-  <section class="module" style="background:#2b2b2b">
-    <h2 class="section-title">Pronto para começar?</h2>
-    <p>De R$80,00 por <strong>R$42,50</strong></p>
-    <p><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">💳 Comprar Agora — R$ 42,50</a></p>
+    <p>Participe do grupo fechado e moderado para trocar experiências e registrar conquistas.</p>
   </section>
 </main>
 
