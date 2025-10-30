@@ -65,7 +65,38 @@ main{max-width:1100px;margin:28px auto;padding:0 20px;text-align:center}
 .module-contrast-3{background:rgba(255,255,255,0.08)}
 .module h2{margin-top:0;color:var(--green1)}
 .module p{color:#e4e4e4}
-.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px}
+.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+
+/* === ANIMAÇÃO DE ENTRADA DAS IMAGENS === */
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.module-img {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* quando visível */
+.module-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* alternância de direção */
+.module:nth-of-type(even) .module-img.visible {
+  animation: slideInLeft 1s ease forwards;
+}
+.module:nth-of-type(odd) .module-img.visible {
+  animation: slideInRight 1s ease forwards;
+}
+
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .card{background:rgba(255,255,255,0.08);border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.4)}
 
@@ -141,13 +172,13 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
   <section id="exercicios" class="module module-contrast-2">
     <h2 class="section-title">Exercícios em Casa</h2>
     <p>Sequências de 10–20 minutos: aquecimento, parte principal e alongamento. Versões iniciante/intermediário/avançado para cada exercício.</p>
-    <img class="module-img" src="assets/exercicios.jpg" alt="Exercícios em casa">
+    <img class="module-img" src="assets/exerciciosemcasa.jpeg" alt="Exercícios em casa">
   </section>
 
   <section id="sono" class="module module-contrast-2">
     <h2 class="section-title">Sono Reparador</h2>
     <p>Melhore a recuperação com higiene do sono: rotina, ambiente e técnicas de relaxamento.</p>
-    <img class="module-img" src="assets/sono.jpg" alt="Sono reparador">
+    <img class="module-img" src="assets/sonoreparador.jpeg" alt="Sono reparador">
   </section>
 
   <section id="feedbacks" class="module">
@@ -162,7 +193,7 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
   <section id="autoestima" class="module module-contrast-3">
     <h2 class="section-title">Guia de Autoestima</h2>
     <p>Exercícios diários para desenvolver autoaceitação: diário de gratidão, 3 conquistas do dia e prática de afirmações.</p>
-    <img class="module-img" src="assets/autoestima.jpg" alt="Autoestima">
+    <img class="module-img" src="assets/autoestima.jpeg" alt="Autoestima">
   </section>
 
   <section id="acompanhamento" class="module module-contrast">
@@ -194,6 +225,18 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
   </div>
   <p style="margin-top:10px;">© 2025 Desafio dos 30 Dias — Corpo & Mente</p>
 </footer>
+
+<script>
+const imgs = document.querySelectorAll('.module-img');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+imgs.forEach(img => observer.observe(img));
+</script>
 
 </body>
 </html>
