@@ -12,34 +12,31 @@
 :root{
   --green1:#7dd87d;
   --green2:#3c7a3c;
-  --neutral:#0d0d0d;
-  --card:#ffffff;
+  --neutral:#2b2b2b;
   --muted:#f1f1f1;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
 body{
   margin:0;
   font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background:#2b2b2b;
+  background:var(--neutral);
   color:var(--muted);
 }
 a{color:inherit;text-decoration:none}
+
 .topbar{
   position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
-  padding:10px 20px;
-  background:var(--green2);
-  color:#fff;
-  border-bottom:1px solid rgba(255,255,255,0.1)
+  padding:10px 20px;background:var(--green2);color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)
 }
 .topbar .brand{font-weight:800;color:#fff}
-.btn{display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;cursor:pointer;text-align:center}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none}
 .btn-primary{background:linear-gradient(90deg,var(--green1),var(--green2));color:#053216;box-shadow:0 10px 30px rgba(60,122,60,0.12)}
+
 .hero{position:relative;width:100%;min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.62)}
-.hero-overlay{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:36px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center}
-.hero-title{font-size:clamp(1.8rem,3.2vw,3rem);margin:0;color:#fff;font-weight:900;text-transform:uppercase;text-align:center;text-shadow:0 18px 40px rgba(0,0,0,0.45)}
-.hero-phrase{position:absolute;left:50%;top:58%;transform:translateX(-50%);color:rgba(255,255,255,0.95);font-size:1.6rem;font-style:italic;background:rgba(0,0,0,0.25);padding:12px 20px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+.hero-overlay{position:relative;z-index:2;text-align:center;max-width:1000px;margin:0 auto;padding:36px}
+.hero-title{font-size:clamp(1.8rem,3.2vw,3rem);margin:0;color:#fff;font-weight:900;text-transform:uppercase;text-shadow:0 18px 40px rgba(0,0,0,0.45)}
+.hero-phrase{position:absolute;left:50%;top:58%;transform:translateX(-50%);color:#fff;font-size:1.4rem;font-style:italic;background:rgba(0,0,0,0.3);padding:10px 20px;border-radius:8px}
 
 .section-title{
   position:relative;
@@ -52,72 +49,39 @@ a{color:inherit;text-decoration:none}
   text-align:center;
   animation:pulse 2.8s infinite ease-in-out;
 }
-
 @keyframes pulse{
   0%,100%{transform:scale(1);opacity:1}
   50%{transform:scale(1.07);opacity:0.85}
 }
 
 main{max-width:1100px;margin:28px auto;padding:0 20px;text-align:center}
-.module{background:rgba(255,255,255,0.04);border-radius:14px;padding:28px;margin:18px 0;box-shadow:0 14px 40px rgba(0,0,0,0.5);text-align:center}
-.module-contrast{background:rgba(255,255,255,0.05)}
-.module-contrast-2{background:rgba(255,255,255,0.06)}
-.module-contrast-3{background:rgba(255,255,255,0.08)}
-.module h2{margin-top:0;color:var(--green1)}
-.module p{color:#e4e4e4}
-.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.module{border-radius:14px;padding:28px;margin:18px 0;box-shadow:0 10px 25px rgba(0,0,0,0.4);text-align:center}
+.module-img{width:100%;max-height:360px;object-fit:cover;border-radius:12px;margin-top:12px;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 
 /* === ANIMAÇÃO DE ENTRADA DAS IMAGENS === */
-@keyframes slideInLeft {
-  0% { opacity: 0; transform: translateX(-50px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-  0% { opacity: 0; transform: translateX(50px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-.module-img {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.module-img.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.module:nth-of-type(even) .module-img.visible {
-  animation: slideInLeft 1s ease forwards;
-}
-.module:nth-of-type(odd) .module-img.visible {
-  animation: slideInRight 1s ease forwards;
-}
+@keyframes slideInLeft {0%{opacity:0;transform:translateX(-50px);}100%{opacity:1;transform:translateX(0);}}
+@keyframes slideInRight{0%{opacity:0;transform:translateX(50px);}100%{opacity:1;transform:translateX(0);}}
+.module-img{opacity:0;transition:opacity 0.8s ease,transform 0.8s ease;}
+.module-img.visible{opacity:1;}
+.module:nth-of-type(even) .module-img.visible{animation:slideInLeft 1s ease forwards;}
+.module:nth-of-type(odd) .module-img.visible{animation:slideInRight 1s ease forwards;}
 
-/* === FEEDBACKS GALLERY === */
-.feedbacks-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
-.feedbacks-gallery img {
-  width: 100%;
-  max-height: 360px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.feedbacks-gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
-}
-@media(max-width: 600px) {
-  .feedbacks-gallery img { max-height: 240px; }
-}
+/* === CORES PERSONALIZADAS === */
+#apresentacao{background:rgba(255,255,255,0.05);}
+#alimentacao{background:#4cae4c33;} 
+#exercicios{background:#0d0d0d;} 
+#sono{background:#001f3f;} 
+#feedbacks{background:#4cae4c33;} 
+#autoestima{background:#ffb6c133;} 
+#acompanhamento{background:rgba(255,255,255,0.05);}
+#grupo{background:#075E54;}
+section.module p{color:#e8e8e8}
 
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{background:rgba(255,255,255,0.08);border-radius:10px;padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.4)}
+/* FEEDBACKS */
+.feedbacks-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px;}
+.feedbacks-gallery img{width:100%;max-height:340px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.5);}
 
+/* BOTÃO FLUTUANTE */
 .floating-btn{
   position:fixed;
   right:18px;
@@ -125,26 +89,41 @@ main{max-width:1100px;margin:28px auto;padding:0 20px;text-align:center}
   z-index:9999;
   background:linear-gradient(90deg,var(--green1),var(--green2));
   color:#043216;
-  padding:14px 20px;
+  padding:16px 22px;
   border-radius:999px;
   font-weight:800;
-  box-shadow:0 14px 40px rgba(20,70,20,0.18);
+  box-shadow:0 14px 40px rgba(20,70,20,0.25);
   cursor:pointer;
   border:none;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.floating-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 16px 48px rgba(20,70,20,0.4);
 }
 
-.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998}
-.toast{background:linear-gradient(90deg,var(--green1),var(--green2));color:#063216;padding:12px 16px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:all .45s ease;box-shadow:0 12px 36px rgba(20,70,20,0.14);font-weight:700}
-.toast.show{opacity:1;transform:translateY(0)}
+/* TOASTS */
+.toast-wrap{position:fixed;left:18px;bottom:18px;z-index:9998;}
+.toast{
+  background:linear-gradient(90deg,var(--green1),var(--green2));
+  color:#063216;
+  padding:12px 16px;
+  border-radius:12px;
+  margin-top:10px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all .45s ease;
+  box-shadow:0 12px 36px rgba(20,70,20,0.14);
+  font-weight:700;
+}
+.toast.show{opacity:1;transform:translateY(0);}
 
 footer{text-align:center;padding:28px 12px;background:rgba(255,255,255,0.05);margin-top:28px;border-radius:12px;color:#ddd}
 footer a{color:var(--green1)}
-footer .social{margin-top:10px}
-footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--green1)}
+footer .social a{margin:0 8px;color:var(--green1)}
 
 @media(max-width:900px){
   .hero-overlay{padding:18px}
-  .hero-phrase{font-size:1.1rem;top:62%}
   .grid-3{grid-template-columns:1fr}
 }
 </style>
@@ -153,49 +132,44 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
 
 <div class="topbar">
   <div class="brand">Desafio dos 30 Dias</div>
-  <div class="buy"><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a></div>
+  <a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">Comprar Agora</a>
 </div>
 
 <header class="hero">
   <img src="assets/hero_banner_user.png" alt="Banner - Desafio dos 30 Dias">
   <div class="hero-overlay">
-    <div style="width:100%">
-      <div class="hero-title">DESAFIO DOS 30 DIAS</div>
-      <div class="lead" style="color:#f4f7f4; margin-top:12px; max-width:900px; margin:0 auto;">Um programa completo para sua saúde, foco e autoestima. Acompanhe diariamente com exercícios, dicas de alimentação e suporte de comunidade.</div>
-    </div>
+    <h1 class="hero-title">DESAFIO DOS 30 DIAS</h1>
+    <p>Um programa completo para sua saúde, foco e autoestima. Acompanhe diariamente com exercícios, dicas de alimentação e suporte de comunidade.</p>
   </div>
   <div class="hero-phrase">Fique de bem com seu corpo e mente.</div>
 </header>
 
-<main id="modules">
-
-  <section id="apresentacao" class="module module-contrast">
+<main>
+  <section id="apresentacao" class="module">
     <h2 class="section-title">Apresentação do Programa</h2>
-    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima! Durante 30 dias, você receberá acompanhamento diário com <strong>exercícios guiados, orientações de alimentação e hábitos saudáveis</strong>, além do acesso a um <strong>grupo exclusivo</strong> de participantes para trocar experiências e manter a motivação.</p>
+    <p>Descubra o método que está ajudando centenas de pessoas a retomarem o foco, a energia e a autoestima!</p>
     <img class="module-img" src="assets/apresentacao-programa.jpeg" alt="Apresentação do Programa">
-    <p style="font-weight:700;margin-top:10px;">Você está a um passo de viver sua melhor versão — o momento é agora!</p>
-    <p><a class="btn btn-primary" href="https://pay.kiwify.com.br/qlEvpiq" target="_blank">QUERO COMEÇAR AGORA</a></p>
   </section>
 
-  <section id="alimentacao" class="module module-contrast">
+  <section id="alimentacao" class="module">
     <h2 class="section-title">Alimentação Saudável</h2>
     <p>Receitas fáceis, listas de compras práticas e estratégias para aumentar energia e controlar desejos — sem dietas restritivas.</p>
-    <div class="grid-3" style="margin-top:12px">
+    <div class="grid-3">
       <div class="card"><img class="module-img" src="assets/receitassimples.jpeg" alt="Receitas simples"></div>
       <div class="card"><img class="module-img" src="assets/planejamentodereceitas.jpeg" alt="Planejamento"></div>
       <div class="card"><img class="module-img" src="assets/controlesedesejo.jpeg" alt="Controle de desejos"></div>
     </div>
   </section>
 
-  <section id="exercicios" class="module module-contrast-2">
+  <section id="exercicios" class="module">
     <h2 class="section-title">Exercícios em Casa</h2>
-    <p>Sequências de 10–20 minutos: aquecimento, parte principal e alongamento. Versões iniciante/intermediário/avançado para cada exercício.</p>
+    <p>Sequências curtas e práticas para transformar seu corpo em casa.</p>
     <img class="module-img" src="assets/exerciciosemcasa.jpeg" alt="Exercícios em casa">
   </section>
 
-  <section id="sono" class="module module-contrast-2">
+  <section id="sono" class="module">
     <h2 class="section-title">Sono Reparador</h2>
-    <p>Melhore a recuperação com higiene do sono: rotina, ambiente e técnicas de relaxamento.</p>
+    <p>Melhore sua recuperação com técnicas de relaxamento e rotina de descanso.</p>
     <img class="module-img" src="assets/sonoreparador.jpeg" alt="Sono reparador">
   </section>
 
@@ -211,21 +185,22 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
     </div>
   </section>
 
-  <section id="autoestima" class="module module-contrast-3">
+  <section id="autoestima" class="module">
     <h2 class="section-title">Guia de Autoestima</h2>
-    <p>Exercícios diários para desenvolver autoaceitação: diário de gratidão, 3 conquistas do dia e prática de afirmações.</p>
+    <p>Exercícios diários para fortalecer sua confiança e amor-próprio.</p>
     <img class="module-img" src="assets/autoestima.jpeg" alt="Autoestima">
   </section>
 
-  <section id="acompanhamento" class="module module-contrast">
+  <section id="acompanhamento" class="module">
     <h2 class="section-title">Acompanhamento Diário</h2>
-    <p>Envios diários com exercício do dia (10–20min), dica de alimentação, micro-desafio mental e link para o conteúdo do dia (vídeo/PDF). Envio pelo WhatsApp ou e-mail — você escolhe no momento da compra.</p>
+    <p>Receba todos os dias desafios e orientações exclusivas direto no WhatsApp.</p>
+    <img class="module-img" src="assets/acompanhamento.jpeg" alt="Acompanhamento Diário">
   </section>
 
   <section id="grupo" class="module">
     <h2 class="section-title">Grupo de Apoio Exclusivo</h2>
-    <p>Participe do grupo fechado e moderado: troque experiências, registre conquistas e participe de encontros semanais opcionais.</p>
-    <p><a class="btn btn-primary" href="#" target="_blank">Entrar no Grupo</a></p>
+    <p>Troque experiências e mantenha a motivação no grupo oficial.</p>
+    <img class="module-img" src="assets/grupo.jpeg" alt="Grupo Exclusivo">
   </section>
 
   <section class="module" style="background:#2b2b2b">
@@ -235,11 +210,15 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
   </section>
 </main>
 
-<button class="floating-btn" onclick="window.open('https://pay.kiwify.com.br/qlEvpiq','_blank')">QUERO INICIAR O PROJETO 30 DIAS</button>
+<!-- Botão flutuante -->
+<button class="floating-btn" onclick="comprarAgora()">🚀 INICIAR PROJETO 30 DIAS</button>
+
+<!-- Toast notifications -->
+<div class="toast-wrap" id="toastWrap"></div>
 
 <footer>
   <p><strong>Contato</strong></p>
-  <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank">21 99745-3119</a> • ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
+  <p>📱 WhatsApp: <a href="https://wa.me/5521997453119" target="_blank">21 99745-3119</a> | ✉️ <a href="mailto:marketingmrkt2025@gmail.com">marketingmrkt2025@gmail.com</a></p>
   <div class="social">
     <a href="https://www.instagram.com/" target="_blank">Instagram</a> |
     <a href="https://www.youtube.com/" target="_blank">YouTube</a>
@@ -248,15 +227,34 @@ footer .social a{margin:0 8px;text-decoration:none;font-weight:700;color:var(--g
 </footer>
 
 <script>
+// animação das imagens
 const imgs = document.querySelectorAll('.module-img');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
   });
-}, { threshold: 0.2 });
-imgs.forEach(img => observer.observe(img));
+},{threshold:0.2});
+imgs.forEach(img=>observer.observe(img));
+
+// botão e toasts
+function comprarAgora(){
+  showToast("Compra iniciada...");
+  setTimeout(()=> showToast("Redirecionando para o pagamento..."), 1500);
+  setTimeout(()=> window.open("https://pay.kiwify.com.br/qlEvpiq","_blank"), 3000);
+}
+
+function showToast(msg){
+  const wrap = document.getElementById('toastWrap');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  wrap.appendChild(toast);
+  setTimeout(()=> toast.classList.add('show'), 100);
+  setTimeout(()=> {
+    toast.classList.remove('show');
+    setTimeout(()=> wrap.removeChild(toast), 600);
+  }, 4000);
+}
 </script>
 
 </body>
